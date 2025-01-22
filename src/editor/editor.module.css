@@ -1,0 +1,22 @@
+.editor {
+  height: 100%;
+}
+
+.header {
+  height: 48px;
+  background-color: #fff;
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+}
+
+.sider {
+  width: 480px;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: var(--shadow-1);
+}
+
+.content {
+  background-color: #f4f6f9;
+  overflow-y: auto;
+}
