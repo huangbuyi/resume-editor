@@ -6,6 +6,8 @@ import { ExperiencesEditor } from './ExperiencesEditor';
 import { ProjectsEditor } from './ProjectsEditor';
 import { BasicEditor } from './basicEditor';
 import { useResumeStore } from '../resume/store';
+import { EducationsEditor } from './EducationsEdtor';
+import { InterestsEditor } from './InterestsEditor';
 
 function CollapseHeaderLabel({ label, count }: { label: string, count: number }) {
   return (
@@ -48,12 +50,12 @@ export function FieldsEditor() {
     {
       key: '5',
       label: <CollapseHeaderLabel label="教育经历" count={educations.length} />,
-      children: <div></div>,
+      children: <EducationsEditor />,
     },
     {
       key: '6',
       label: <CollapseHeaderLabel label="兴趣爱好" count={interests.length} />,
-      children: <div></div>,
+      children: <InterestsEditor />,
     },
   ]
 

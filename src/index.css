@@ -13,7 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
 
   --shadow-1: rgba(0, 0, 0, 0.1) 0px 1px 3px;
-  --bg-1: #f4f6f9;
+  --bg-1: #f2f2f2;
+  --bg-2: #e5e5e5;
 }
 
 a {
