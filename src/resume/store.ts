@@ -1,18 +1,21 @@
 import { create} from 'zustand';
-import { Education, Experience, Info, Project, Resume, Skill } from './resume';
+import { Education, Experience, Info, Project, Resume, ResumeData, Skill } from './resume';
+import demo from './demo.json';
 
 export interface ResumeStore extends Resume {
+  load: (data: ResumeData) => void;
+
   setName: (name: string) => void;
   setTitle: (title: string) => void;
   setIntroduction: (introduction: string) => void;
   setProfilePicture: (profilePicture: string) => void;
 
-  addProject: (project: Project) => void;
+  addProject: (project: Omit<Project, 'id'>) => void;
   addInterest: (interest: string) => void;
-  addInfo: (info: Info) => void;
-  addSkill: (skill: Skill) => void;
-  addExperience: (experience: Experience) => void;
-  addEducation: (education: Education) => void;
+  addInfo: (info: Omit<Info, 'id'>) => void;
+  addSkill: (skill: Omit<Skill, 'id'>) => void;
+  addExperience: (experience: Omit<Experience, 'id'>) => void;
+  addEducation: (education: Omit<Education, 'id'>) => void;
 
   removeInfo: (index: number) => void;
   removeSkill: (index: number) => void;
@@ -27,59 +30,71 @@ export interface ResumeStore extends Resume {
   setEducation: (index: number, education: Partial<Education>) => void;
   setProject: (index: number, project: Partial<Project>) => void;
   setInterest: (index: number, interest: string) => void;
+
+  setInfos: (infos: Info[]) => void;
+  setSkills: (skills: Skill[]) => void;
+  setExperiences: (experiences: Experience[]) => void;
+  setEducations: (educations: Education[]) => void;
+  setProjects: (projects: Project[]) => void;
+  setInterests: (interests: string[]) => void;
 }
 
+const GlobalId = {
+  info: 0,
+  skill: 0,
+  experience: 0,
+  education: 0,
+  project: 0,
+}
 
-const demoExprDesc1 = 
-`- 领导产品开发全过程，包括市场调研、需求收集、竞品分析、功能设计、原型制作、用户体验优化等。
-- 与研发、设计、市场、运营等多个部门紧密合作，协调资源，确保项目按时按质完成。
-- 监控产品性能指标，基于数据驱动的原则进行迭代更新，持续提升产品质量和用户体验。
-- 成功推出多款移动应用和服务平台，其中某款APP用户量突破百万大关，获得广泛好评。`;
-
-const demoExprDesc2 = 
-`- 协助产品经理完成日常任务，参与产品规划和执行细节讨论。
-- 支持用户反馈处理和客服支持工作，收集整理用户意见用于改进产品。
-- 参与制定产品文档，如需求说明书、业务流程图等，确保团队成员对产品有清晰理解。
-- 学习并掌握了敏捷开发方法论，提高了团队协作效率。`;
-
-export const useResumeStore = create<ResumeStore>((set) => ({
-  name: '张伟',
-  title: '产品经理',
-  introduction: '作为一名拥有多年经验的产品经理，我在科技行业积累了丰富的实践经验，并在多个成功的项目中扮演了关键角色。我擅长通过用户需求分析和技术趋势预测来定义产品愿景，带领跨职能团队从概念到上市，确保产品的高质量交付。致力于推动创新并解决实际问题，我相信优秀的产品能够改变人们的生活方式并为企业创造价值。',
+export const useResumeStore = create<ResumeStore>((set, get) => ({
+  name: '',
+  title: '',
+  introduction: '',
   profilePicture: '',
-  infos: [
-    { label: '邮箱', value: 'zhangwei@example.com' },
-    { label: '电话', value: '123-456-7890' },
-    { label: '城市', value: '北京' },
-  ],
-  skills: [
-    { name: '英语', level: 3 },
-    { name: 'C++', level: 4 },
-  ],
-  experiences: [
-    { company: 'XYZ科技有限公司', title: '产品经理', startDate: '2020-01-01', endDate: '', description: demoExprDesc1 },
-    { company: 'LMN互联网公司', title: '产品经理助理', startDate: '2015-01-01', endDate: '2020-01-01', description: demoExprDesc2 },
-  ],
-  educations: [
-    { school: 'DEF大学', degree: '硕士学位', startDate: '2012-09', endDate: '2015-07', description: '工业工程与管理' },
-    { school: 'ABC大学', degree: '学士学位', startDate: '2008-09', endDate: '2012-07', description: '计算机科学与技术' }
-  ],
-  projects: [
-    { name: '项目1', title: '项目标题1', excerpt: '项目摘要1', startDate: '2023-01', endDate: '2023-06', description: '项目描述1' }
-  ],
+  infos: [],
+  skills: [],
+  experiences: [],
+  educations: [],
+  projects: [],
   interests: [],
+
+  load: (data: ResumeData) => {
+    try {
+      const store = get();
+      store.setName(data.name || '');
+      store.setTitle(data.title || '');
+      store.setIntroduction(data.introduction || '');
+      store.setProfilePicture(data.profilePicture || '');
+      store.setInfos([]);
+      store.setSkills([]);
+      store.setExperiences([]);
+      store.setEducations([]);
+      store.setProjects([]);
+      store.setInterests([]);
+      if (data.infos) data.infos.forEach(info => store.addInfo(info));
+      if (data.skills) data.skills.forEach(skill => store.addSkill(skill));
+      if (data.experiences) data.experiences.forEach(experience => store.addExperience(experience));
+      if (data.educations) data.educations.forEach(education => store.addEducation(education));
+      if (data.projects) data.projects.forEach(project => store.addProject(project));
+      if (data.interests) data.interests.forEach(interest => store.addInterest(interest));
+      
+    } catch (e) {
+      console.error(e);
+    }
+  },
 
   setName: (name: string) => set({ name }),
   setTitle: (title: string) => set({ title }),
   setIntroduction: (introduction: string) => set({ introduction }),
   setProfilePicture: (profilePicture: string) => set({ profilePicture }),
 
-  addInfo: (info: Info) => set((state) => ({ infos: [...state.infos, info] })),
-  addSkill: (skill: Skill) => set((state) => ({ skills: [...state.skills, skill] })),
-  addExperience: (experience: Experience) => set((state) => ({ experiences: [...state.experiences, experience] })),
-  addEducation: (education: Education) => set((state) => ({ educations: [...state.educations, education]})),
-  addProject: (project: Project) => set((state) => ({ projects: [...state.projects, project] })),
-  addInterest: (interest: string) => set((state) => ({ interests: [...state.interests, interest] })),
+  addInfo: (info: Omit<Info, 'id'>) => set((state) => ({ infos: [...state.infos, Object.assign(info, { id: GlobalId.info++ })] })),
+  addSkill: (skill: Omit<Skill, 'id'>) => set((state) => ({ skills: [...state.skills, Object.assign(skill, { id: GlobalId.skill++ })] })),
+  addExperience: (experience: Omit<Experience, 'id'>) => set((state) => ({ experiences: [...state.experiences, Object.assign(experience, { id: GlobalId.experience++ })] })),
+  addEducation: (education: Omit<Education, 'id'>) => set((state) => ({ educations: [...state.educations, Object.assign(education, { id: GlobalId.education++ })]})),
+  addProject: (project: Omit<Project, 'id'>) => set((state) => ({ projects: [...state.projects, Object.assign(project, { id: GlobalId.project++ })] })),
+  addInterest: (interest: string) => set((state) => ({ interests: state.interests.includes(interest) ? state.interests : [...state.interests, interest] })),
   
   removeInfo: (index: number) => set((state) => ({ infos: state.infos.filter((_, i) => i !== index) })),
   removeSkill: (index: number) => set((state) => ({ skills: state.skills.filter((_, i) => i !== index) })),
@@ -118,4 +133,13 @@ export const useResumeStore = create<ResumeStore>((set) => ({
     interests[index] = interest;
     return { interests };
   }),
+
+  setInfos: (infos: Info[]) => set({infos}),
+  setSkills: (skills: Skill[]) => set({skills}),
+  setExperiences: (experiences: Experience[]) => set({experiences}),
+  setEducations: (educations: Education[]) => set({educations}),
+  setProjects: (projects: Project[]) => set({projects}),
+  setInterests: (interests: string[]) => set({interests}),
 }))
+
+useResumeStore.getState().load(demo);

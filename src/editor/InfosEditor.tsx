@@ -20,8 +20,9 @@ import {
 import { SortableItem } from './SortableItem';
 
 export function InfosEditor() {
-  const { infos, addInfo, setInfo, removeInfo } = useResumeStore();
+  const { infos, addInfo, setInfo, setInfos, removeInfo } = useResumeStore();
   const [ newInfoLabel, setNewInfoLabel ] = useState('');
+
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -31,21 +32,23 @@ export function InfosEditor() {
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
-    if (active.id !== over?.id) {
-      const oldIndex = infos.findIndex((info) => info.label === active.id);
-      const newIndex = infos.findIndex((info) => info.label === over?.id);
+    if (over && active.id !== over?.id) {
+      const oldIndex = infos.findIndex(info => info.id === active.id);
+      const newIndex = infos.findIndex(info => info.id === over.id);
       const newInfos = arrayMove(infos, oldIndex, newIndex);
-      console.log(newInfos);
+      setInfos(newInfos);
+      return true;
     }
   }
+
 
   return (
     <>
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        <SortableContext items={infos.map((_, index) => index)} strategy={verticalListSortingStrategy}>
+        <SortableContext items={infos.map(info => info.id)} strategy={verticalListSortingStrategy}>
           {infos.map((info, index) => (
-            <SortableItem id={index}>
-              <Form.Item key={index} label={info.label}>
+            <SortableItem key={info.id} id={info.id}>
+              <Form.Item label={info.label}>
                 <Flex gap={16}>
                   <Input value={info.value} allowClear onChange={e => setInfo(index, { value: e.target.value })} />
                   <Button type="text" icon={<DeleteOutlined />} onClick={() => removeInfo(index)}></Button>
