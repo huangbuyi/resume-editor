@@ -1,7 +1,6 @@
-import { Button, Flex, Form, Input, Space } from 'antd';
+import { Button, Form, Input, Space } from 'antd';
 import { useResumeStore } from '../resume/store';
 import { useState } from 'react';
-import { DeleteOutlined } from '@ant-design/icons';
 import {
   DndContext,
   closestCenter,
@@ -41,21 +40,19 @@ export function InfosEditor() {
     }
   }
 
-
   return (
     <>
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={infos.map(info => info.id)} strategy={verticalListSortingStrategy}>
-          {infos.map((info, index) => (
-            <SortableItem key={info.id} id={info.id}>
-              <Form.Item label={info.label}>
-                <Flex gap={16}>
+          <ul className="sortable-list">
+            {infos.map((info, index) => (
+              <SortableItem key={info.id} id={info.id} onDelete={() => removeInfo(index)}>
+                <Form.Item label={info.label}>
                   <Input value={info.value} allowClear onChange={e => setInfo(index, { value: e.target.value })} />
-                  <Button type="text" icon={<DeleteOutlined />} onClick={() => removeInfo(index)}></Button>
-                </Flex>
-              </Form.Item>
-            </SortableItem>
-          ))}
+                </Form.Item>
+              </SortableItem>
+            ))}
+          </ul>
         </SortableContext>
       </DndContext>
       <Space.Compact style={{ width: '100%', justifyContent: 'right', marginTop: 8 }}>

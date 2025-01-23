@@ -1,13 +1,45 @@
-import { Button, DatePicker, Divider, Flex, Form, Input, Space } from 'antd';
+import { Button, DatePicker, Form, Input, Space } from 'antd';
 import { useResumeStore } from '../resume/store';
-import { DeleteOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import { DateFormat } from '../resume/resume';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensors,
+  useSensor,
+  DragEndEvent,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import { SortableItem } from './SortableItem';
 
 const { TextArea } = Input;
 
 export function ExperiencesEditor() {
-  const { experiences, addExperience, setExperience, removeExperience } = useResumeStore();
+  const { experiences, addExperience, setExperience, removeExperience, setExperiences } = useResumeStore();
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    }),
+  );
+
+  function handleDragEnd(event: DragEndEvent) {
+    const { active, over } = event;
+    if (over && active.id !== over?.id) {
+      const oldIndex = experiences.findIndex(experience => experience.id === active.id);
+      const newIndex = experiences.findIndex(experience => experience.id === over.id);
+      const newExperiences = arrayMove(experiences, oldIndex, newIndex);
+      setExperiences(newExperiences);
+      return true;
+    }
+  }
 
   function getStartDate() {
     const lastExper = experiences[experiences.length - 1];
@@ -29,27 +61,29 @@ export function ExperiencesEditor() {
 
   return (
     <>
-      {experiences.map((experience, index) => (
-        <div key={index}>
-          <Form.Item label="公司名">
-            <Input value={experience.company} allowClear onChange={e => setExperience(index, { company: e.target.value })} />
-          </Form.Item>
-          <Form.Item label="职位">
-            <Input value={experience.title} allowClear onChange={e => setExperience(index, { title: e.target.value })} />
-          </Form.Item>
-          <Form.Item label="时间">
-            <DatePicker picker="month" placeholder="开始时间" value={dayjs(experience.startDate)} onChange={date => setExperience(index, { startDate: date.format(DateFormat) })} />
-            <DatePicker picker="month" placeholder="至今" allowClear value={experience.endDate && dayjs(experience.endDate)} onChange={date => setExperience(index, { endDate: date &&  date.format(DateFormat) })} style={{ marginLeft: 8 }}/>
-          </Form.Item>
-          <Form.Item label="工作内容">
-            <TextArea value={experience.description} allowClear autoSize={{ minRows: 2 }} onChange={e => setExperience(index, { description: e.target.value })} />
-          </Form.Item>
-          <Flex justify="center">
-            <Button type="text" icon={<DeleteOutlined />} onClick={() => removeExperience(index)}></Button>
-          </Flex>
-          <Divider dashed style={{ margin: '12px 0' }}></Divider>
-        </div>
-      ))}
+      <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+        <SortableContext items={experiences.map(experience => experience.id)} strategy={verticalListSortingStrategy}>
+          <ul className="sortable-list">
+            {experiences.map((experience, index) => (
+              <SortableItem key={experience.id} id={experience.id} vertical onDelete={() => removeExperience(index)}>
+                <Form.Item label="公司名">
+                  <Input value={experience.company} allowClear onChange={e => setExperience(index, { company: e.target.value })} />
+                </Form.Item>
+                <Form.Item label="职位">
+                  <Input value={experience.title} allowClear onChange={e => setExperience(index, { title: e.target.value })} />
+                </Form.Item>
+                <Form.Item label="时间">
+                  <DatePicker picker="month" placeholder="开始时间" value={dayjs(experience.startDate)} onChange={date => setExperience(index, { startDate: date.format(DateFormat) })} />
+                  <DatePicker picker="month" placeholder="至今" allowClear value={experience.endDate && dayjs(experience.endDate)} onChange={date => setExperience(index, { endDate: date &&  date.format(DateFormat) })} style={{ marginLeft: 8 }}/>
+                </Form.Item>
+                <Form.Item label="工作内容">
+                  <TextArea value={experience.description} allowClear autoSize={{ minRows: 2 }} onChange={e => setExperience(index, { description: e.target.value })} />
+                </Form.Item>
+              </SortableItem>
+            ))}
+          </ul>
+        </SortableContext>
+      </DndContext>
       <Space.Compact style={{ width: '100%', justifyContent: 'right', marginTop: 8 }}>
         <Button type="primary" htmlType="button" onClick={() => addExperience({ company: '', title: '', startDate: getStartDate(), endDate: getEndDate(), description: '' })}>
           新增

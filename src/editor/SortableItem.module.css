@@ -1,8 +1,6 @@
 .sortableItem {
   position: relative;
   background: #fff;
-  border-radius: 4px;
-  padding-right: 8px;
 }
 
 .sortableItem :global(.ant-form-item) {
