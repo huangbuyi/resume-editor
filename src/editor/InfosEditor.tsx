@@ -57,7 +57,7 @@ export function InfosEditor() {
       </DndContext>
       <Space.Compact style={{ width: '100%', justifyContent: 'right', marginTop: 8 }}>
         <Input value={newInfoLabel} placeholder="新信息" onChange={e => setNewInfoLabel(e.target.value)} style={{ width: '8em' }}/>
-        <Button type="primary" htmlType="button" onClick={() => newInfoLabel && addInfo({ label: newInfoLabel, value: '' })}>
+        <Button type="primary" htmlType="button" onClick={() => newInfoLabel && addInfo({ label: newInfoLabel, value: '' }) || setNewInfoLabel('') }>
           新增
         </Button>
       </Space.Compact>

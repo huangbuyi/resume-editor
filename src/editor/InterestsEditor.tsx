@@ -55,7 +55,7 @@ export function InterestsEditor() {
       </DndContext>
       <Space.Compact style={{ width: '100%', justifyContent: 'right', marginTop: 8 }}>
         <Input value={newInterestName} placeholder="新兴趣爱好" onChange={e => setsetNewInterestName(e.target.value)} style={{ width: '8em' }}/>
-        <Button type="primary" htmlType="button" onClick={() => !interests.includes(newInterestName) && addInterest(newInterestName)}>
+        <Button type="primary" htmlType="button" onClick={() => newInterestName && !interests.includes(newInterestName) && addInterest(newInterestName) || setsetNewInterestName('')}>
           新增
         </Button>
       </Space.Compact>

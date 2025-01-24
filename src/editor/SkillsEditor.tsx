@@ -22,7 +22,7 @@ const skillLevels = ['了解', '熟悉', '熟练', '精通', '专家'];
 
 export function SkillsEditor() {
   const { skills, addSkill, setSkill, removeSkill, setSkills } = useResumeStore();
-  const [ newSkillName, setsetNewSkillName ] = useState('');
+  const [ newSkillName, setNewSkillName ] = useState('');
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -58,8 +58,8 @@ export function SkillsEditor() {
         </SortableContext>
       </DndContext>
       <Space.Compact style={{ width: '100%', justifyContent: 'right', marginTop: 8 }}>
-        <Input value={newSkillName} placeholder="新技能" onChange={e => setsetNewSkillName(e.target.value)} style={{ width: '8em' }}/>
-        <Button type="primary" htmlType="button" onClick={() => newSkillName && addSkill({ name: newSkillName, level: 2 })}>
+        <Input value={newSkillName} placeholder="新技能" onChange={e => setNewSkillName(e.target.value)} style={{ width: '8em' }}/>
+        <Button type="primary" htmlType="button" onClick={() => newSkillName && addSkill({ name: newSkillName, level: 2 }) && setNewSkillName('') }>
           新增
         </Button>
       </Space.Compact>
