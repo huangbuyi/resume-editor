@@ -2,13 +2,14 @@ import { Layout } from 'antd';
 import { FieldsEditor } from './FieldsEditor';
 import { Preview } from './Preview';
 import styles from './Editor.module.css';
+import { EditorHeader } from './EditorHeader';
 
 const { Header, Sider, Content } = Layout;
 
 export function Editor() {
   return (
     <Layout className={styles.editor}>
-      <Header className={styles.header}>Header</Header>
+      <Header className={styles.header}><EditorHeader /></Header>
       <Layout>
         <Content className={styles.content}>
           <Preview />

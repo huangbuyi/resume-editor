@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import { Previewer } from 'pagedjs';
 import ReactDOMServer from 'react-dom/server';
 import { ClassicVertical } from '../templates/ClassicVertical';
+import { setPrintFn } from './print';
 
 const paged = new Previewer();
 
@@ -17,6 +18,7 @@ export function Preview() {
     contentRef,
     pageStyle: ''
   });
+  setPrintFn(reactToPrintFn);
 
   useEffect(() => {
     // 防止初始化时渲染两次
@@ -33,7 +35,6 @@ export function Preview() {
   
   return (
     <Flex className={styles.preview} align='center' justify='center' vertical>
-      <Button onClick={() => reactToPrintFn()}>打印</Button>
       <div className={styles.paper} ref={contentRef}></div>
     </Flex>
   )
