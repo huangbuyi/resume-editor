@@ -35,7 +35,7 @@ export function SortableItem(props: Props) {
   
   return (
     <li ref={setNodeRef} style={style} className={styles.sortableItem}>
-      <Flex style={{ width: '100%' }} align='end' vertical={props.vertical}>
+      <Flex style={{ width: '100%' }} align={ props.vertical ? 'end' : 'center' } vertical={props.vertical}>
         <div style={{ flex: 1, width: '100%' }}>
           { props.children }
         </div>

@@ -15,12 +15,15 @@
     "@dnd-kit/sortable": "^10.0.0",
     "antd": "^5.23.2",
     "markdown-it": "^14.1.0",
+    "pagedjs": "^0.4.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-to-print": "^3.0.4",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@types/markdown-it": "^14.1.2",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react-swc": "^3.5.0",

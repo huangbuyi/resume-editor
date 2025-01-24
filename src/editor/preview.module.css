@@ -1,0 +1,29 @@
+.preview {
+  padding: 16px;
+}
+
+.paper {
+  /* width: 17cm;
+  min-height: 25.4cm;
+  padding: 2cm; */
+  /* background-color: #fff; */
+  /* box-shadow: var(--shadow-1); */
+}
+
+.paper :global(.pagedjs_page) {
+  background-color: #fff;
+  box-shadow: var(--shadow-1);
+  margin-bottom: 16px;
+}
+
+@media print {
+  .paper :global(.pagedjs_page) {
+    background-color: none !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+@page {
+  /* margin: 0cm; */
+}

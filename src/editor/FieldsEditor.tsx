@@ -4,7 +4,7 @@ import { InfosEditor } from './InfosEditor';
 import { SkillsEditor } from './SkillsEditor';
 import { ExperiencesEditor } from './ExperiencesEditor';
 import { ProjectsEditor } from './ProjectsEditor';
-import { BasicEditor } from './basicEditor';
+import { BasicEditor } from './BasicEditor';
 import { useResumeStore } from '../resume/store';
 import { EducationsEditor } from './EducationsEdtor';
 import { InterestsEditor } from './InterestsEditor';
