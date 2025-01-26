@@ -8,6 +8,8 @@ import 'dayjs/locale/zh-cn';
 import dayjs from 'dayjs';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Market } from './market/market.tsx';
+import { AppLayout } from './AppLayout.tsx';
+import './templates/templates.contribution.ts';
 
 dayjs.locale('zh-cn');
 
@@ -17,7 +19,9 @@ createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Editor />} />
-          <Route path="/market" element={<Market />} />
+          <Route element={<AppLayout />}>
+            <Route path="/market" element={<Market />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </ConfigProvider>
