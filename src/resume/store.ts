@@ -2,7 +2,12 @@ import { create} from 'zustand';
 import { Education, Experience, Info, Project, Resume, ResumeData, Skill } from './resume';
 import demo from './demo.json';
 
+const RESUME_DATA_KEY = 'resumeData';
+const RESUME_DATA_CURRENT_VERSION = 1;
+const RESUME_DATA_LOWEST_SUPPORTED_VERSION = 0;
+
 export interface ResumeStore extends Resume {
+  version: number;
   load: (data: ResumeData) => void;
 
   setName: (name: string) => void;
@@ -58,6 +63,7 @@ export const useResumeStore = create<ResumeStore>((set, get) => ({
   educations: [],
   projects: [],
   interests: [],
+  version: RESUME_DATA_CURRENT_VERSION,
 
   load: (data: ResumeData) => {
     try {
@@ -142,4 +148,103 @@ export const useResumeStore = create<ResumeStore>((set, get) => ({
   setInterests: (interests: string[]) => set({interests}),
 }))
 
-useResumeStore.getState().load(demo);
+initStore();
+useResumeStore.subscribe(storeToLocal);
+
+function initStore() {
+  const resumeData = loadFromLocal();
+  if (resumeData) {
+    useResumeStore.getState().load(resumeData);
+    return;
+  }
+  useResumeStore.getState().load(demo);
+}
+
+function storeToLocal(data: ResumeData) {
+  localStorage.setItem(RESUME_DATA_KEY, JSON.stringify(data));
+}
+
+function loadFromLocal() {
+  const data = localStorage.getItem(RESUME_DATA_KEY);
+  if (data) {
+    try {
+      const resumeData = JSON.parse(data) as ResumeData;
+      if (resumeData.version >= RESUME_DATA_LOWEST_SUPPORTED_VERSION) {
+        return resumeData;
+      }
+    } catch {
+      console.error("Invalid data in localStorage");
+      clearLocalStorage();
+    }
+  }
+  return null;
+}
+
+export function clearLocalStorage() {
+  localStorage.removeItem(RESUME_DATA_KEY);
+  useResumeStore.getState().load(demo);
+}
+
+export function downloadJSON() {
+  const resume = useResumeStore.getState();
+  const content = JSON.stringify(resume);
+  const fileName = nameFile(resume);
+  const contentType = 'application/json';
+  const a = document.createElement("a");
+  const file = new Blob([content], {type: contentType});
+  a.href = URL.createObjectURL(file);
+  a.download = fileName;
+  a.click();
+  a.remove();
+}
+
+export async function loadJSON(file: File): Promise<ResumeData> {
+  return new Promise((resolve, reject) => {
+    const fr = new FileReader();
+
+    fr.onload = function(e: ProgressEvent<FileReader>) { 
+      if (typeof e.target?.result !== 'string') {
+        return reject('未知文件格式');
+      };
+      try {
+        const resumeData: ResumeData = JSON.parse(e.target.result);
+        if (resumeData.version >= RESUME_DATA_LOWEST_SUPPORTED_VERSION) {
+          useResumeStore.getState().load(resumeData);
+          return resolve(resumeData);
+        }
+        reject('不支持的版本');
+      } catch {
+        reject('解析失败');
+      }
+    }
+
+    fr.readAsText(file);
+  });
+}
+
+export function nameFile(resume: Resume) {
+  const parts = ['简历'];
+  if (resume.title) parts.unshift(cleanFileName(resume.title));
+  if (resume.name) parts.unshift(cleanFileName(resume.name));
+  return parts.join('-');
+}
+
+
+function cleanFileName(input: string): string {
+  // 定义需要移除的不安全字符集合
+  // 注意：这里我们保留了所有非ASCII字符，因为它们可能是国际字符的一部分
+  const unsafeChars = /[\\/:"*?<>|]/g;
+
+  // 替换空格为下划线，可以根据需求调整此部分
+  let cleaned = input.replace(/ /g, '_');
+
+  // 移除不安全字符
+  cleaned = cleaned.replace(unsafeChars, '');
+
+  // 确保文件名不会以点号或连字符开头（一些系统可能不允许）
+  if (cleaned.startsWith('.') || cleaned.startsWith('-')) {
+    cleaned = '_' + cleaned;
+  }
+
+  return cleaned;
+}

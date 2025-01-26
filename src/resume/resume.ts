@@ -22,6 +22,7 @@ export interface ResumeData {
   projects?: Omit<Project, 'id'>[];
   interests?: string[];
   introduction?: string;
+  version: number;
 }
 
 export interface Info {
