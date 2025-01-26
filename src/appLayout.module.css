@@ -1,0 +1,16 @@
+.appLayout {
+  height: 100%;
+  position: fixed;
+}
+
+.header {
+  height: 48px;
+  background-color: #fff;
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+}
+
+.content {
+  background-color: var(--bg-1);
+  overflow-y: auto;
+}

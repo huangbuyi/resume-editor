@@ -1,6 +1,7 @@
 import { Button, Divider, Flex, GetProp, Popconfirm, Upload, UploadProps, message } from 'antd';
 import { printResume } from './print';
 import { clearLocalStorage, downloadJSON, loadJSON } from '../resume/store';
+import { NavLink } from 'react-router-dom';
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
@@ -34,7 +35,9 @@ export function EditorHeader() {
       </Upload>
       <Button onClick={downloadJSON}>保存为 JSON</Button>
       <Divider type="vertical" />
-      <Button type="primary">模板市场 <span style={{ color: 'rgba(255,255,255,.5)' }}>12</span></Button>
+      <NavLink to="/market">
+        <Button type="primary">模板市场 <span style={{ color: 'rgba(255,255,255,.5)' }}>12</span></Button>
+      </NavLink>
       <Divider type="vertical" />
       <Button type="primary" onClick={printResume}>打印 / 另存 PDF</Button>
 
