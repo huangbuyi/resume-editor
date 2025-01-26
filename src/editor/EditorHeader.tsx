@@ -12,7 +12,7 @@ export function EditorHeader() {
       <Button type="primary" onClick={printResume}>打印 / 另存 PDF</Button>
 
       <Divider type="vertical" style={{ marginLeft: 'auto' }}/>
-      <span style={{ color: 'rgba(0,0,0,.5)' }}>本网页不会上传用户数据</span>
+      <span style={{ color: 'rgba(0,0,0,.5)' }}>本网页不会上传任何用户数据</span>
       <Divider type="vertical" />
       <Button>清除缓存</Button>
     </Flex>

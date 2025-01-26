@@ -6,9 +6,11 @@ export function ClassicVertical({ resume }: { resume: Resume }) {
   const { name, title, profilePicture, infos, skills, experiences, educations, projects, interests, introduction } = resume;
   return <div className={styles.classicVertical}>
     <div className={styles.header}>
-      <div className={styles.profilePicture}>
-        <img src={profilePicture} alt="profile" />
-      </div>
+      {
+        profilePicture && <div className={styles.profilePicture}>
+          <img src={profilePicture} alt="profile" />
+        </div>
+      }
       <div>
         <div className={styles.basic}>
           <h1 className={styles.name}>{name}</h1>
