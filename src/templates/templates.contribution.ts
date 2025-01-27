@@ -1,50 +1,15 @@
 import { registerTemplate } from '../market/register';
 import { ClassicVertical } from './ClassicVertical';
+import { TowColumns } from './TowColumns';
 
 registerTemplate({
-  name: 'classicVertical',
+  name: 'ClassicVertical',
   title: '经典垂直布局',
   template: ClassicVertical,
 });
 
 registerTemplate({
-  name: 'classicVertical2',
-  title: '经典垂直布局2',
-  template: ClassicVertical,
-});
-
-registerTemplate({
-  name: 'classicVertical2',
-  title: '经典垂直布局2',
-  template: ClassicVertical,
-});
-
-registerTemplate({
-  name: 'classicVertical2',
-  title: '经典垂直布局2',
-  template: ClassicVertical,
-});
-
-registerTemplate({
-  name: 'classicVertical2',
-  title: '经典垂直布局2',
-  template: ClassicVertical,
-});
-
-registerTemplate({
-  name: 'classicVertical2',
-  title: '经典垂直布局2',
-  template: ClassicVertical,
-});
-
-registerTemplate({
-  name: 'classicVertical2',
-  title: '经典垂直布局2',
-  template: ClassicVertical,
-});
-
-registerTemplate({
-  name: 'classicVertical2',
-  title: '经典垂直布局2',
-  template: ClassicVertical,
+  name: 'TowColumns',
+  title: '双栏布局',
+  template: TowColumns,
 });

@@ -16,6 +16,14 @@ export const templateRegistry = new (class TemplateRegistry {
   getTemplates() {
     return this.templates;
   }
+
+  getTemplateByName(name: string) {
+    const options = this.templates.find(item => item.name === name);
+    if (options) {
+      return options.template;
+    }
+    return null;
+  }
 })();
 
 export function registerTemplate(template: TemplateOptions) {

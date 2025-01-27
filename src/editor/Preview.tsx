@@ -7,11 +7,13 @@ import { Previewer } from 'pagedjs';
 import ReactDOMServer from 'react-dom/server';
 import { ClassicVertical } from '../templates/ClassicVertical';
 import { setPrintFn } from './print';
+import { useTemplateStore } from '../resume/template';
 
 // const paged = new Previewer();
 
 export function Preview() {
   const resume = useResumeStore();
+  const { getTemplate } = useTemplateStore();
   const contentRef = useRef<HTMLDivElement>(null);
   const paged = useRef<Previewer >(new Previewer());
   const rendered = useRef(false);
@@ -27,13 +29,15 @@ export function Preview() {
     if (rendered.current) return;
     rendered.current = true;
 
-    const DOMContent = ReactDOMServer.renderToString(<ClassicVertical resume={resume} />);
+    const Template = getTemplate();
+    if (!Template) return;
+    const DOMContent = ReactDOMServer.renderToString(<Template resume={resume} />);
     paged.current.preview(DOMContent, [], contentRef.current).then(() => {
       document.title = nameFile(resume);
     })
 
     // console.log(paged);
-  }, [resume])
+  }, [resume, getTemplate])
 
   
   return (
