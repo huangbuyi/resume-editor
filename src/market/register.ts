@@ -24,6 +24,10 @@ export const templateRegistry = new (class TemplateRegistry {
     }
     return null;
   }
+
+  hasTemplateByName(name: string) {
+    return this.templates.some(item => item.name === name);
+  }
 })();
 
 export function registerTemplate(template: TemplateOptions) {
