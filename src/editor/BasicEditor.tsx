@@ -67,6 +67,7 @@ export function BasicEditor() {
       </Form.Item>
       <Form.Item label="简介">
         <TextArea value={introduction} autoSize={{ minRows: 2 }} placeholder="个人简介" allowClear onChange={e => setIntroduction(e.target.value)} />
+        <p style={{ margin: 0, color: '#999', textAlign: 'right' }}>多行文本均支持 <a href='https://en.wikipedia.org/wiki/Markdown' target='_blank'>markdown</a> 语法</p>
       </Form.Item>
     </>
   )
