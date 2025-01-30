@@ -25,7 +25,7 @@ export function MixTowColumns({ resume }: { resume: Resume }) {
       {
         introduction && <div className={styles.introduction}>
           <h2>自我介绍</h2>
-          <div>{introduction}</div>
+          <MdDiv text={introduction} />
         </div>
       }
       {
