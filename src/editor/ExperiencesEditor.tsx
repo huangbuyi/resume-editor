@@ -84,7 +84,7 @@ export function ExperiencesEditor() {
           </ul>
         </SortableContext>
       </DndContext>
-      <Space.Compact style={{ width: '100%', justifyContent: 'right', marginTop: 8 }}>
+      <Space.Compact style={{ width: '100%', justifyContent: 'flex-end', marginTop: 8 }}>
         <Button type="primary" htmlType="button" onClick={() => addExperience({ company: '', title: '', startDate: getStartDate(), endDate: getEndDate(), description: '' })}>
           新增
         </Button>

@@ -57,7 +57,7 @@ export function SkillsEditor() {
           </ul>
         </SortableContext>
       </DndContext>
-      <Space.Compact style={{ width: '100%', justifyContent: 'right', marginTop: 8 }}>
+      <Space.Compact style={{ width: '100%', justifyContent: 'flex-end', marginTop: 8 }}>
         <Input value={newSkillName} placeholder="新技能" onChange={e => setNewSkillName(e.target.value)} style={{ width: '8em' }}/>
         <Button type="primary" htmlType="button" onClick={() => newSkillName && addSkill({ name: newSkillName, level: 2 }) && setNewSkillName('') }>
           新增
