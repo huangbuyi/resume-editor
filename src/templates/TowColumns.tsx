@@ -1,10 +1,10 @@
 import { Resume } from '../resume/resume';
 import { MdDiv } from './components/md';
-import styles from './classicVertical.module.css';
+import styles from './towColumns.module.css';
 
 export function TowColumns({ resume }: { resume: Resume }) {
   const { name, title, profilePicture, infos, skills, experiences, educations, projects, interests, introduction } = resume;
-  return <div className={styles.classicVertical} style={{ columns: 2 }}>
+  return <div className={styles.towColumns}>
     <div className={styles.header}>
       {
         profilePicture && <div className={styles.profilePicture}>
@@ -16,10 +16,10 @@ export function TowColumns({ resume }: { resume: Resume }) {
           <h1 className={styles.name}>{name}</h1>
           <span className={styles.title}>职位：{title}</span>
         </div>
-        <div className={styles.infos}>
-          {infos.map(info => <div key={info.id}><span className={styles.infoLabel}>{info.label}：</span><span className={styles.infoValue}>{info.value}</span></div>)}
-        </div>
       </div>
+    </div>
+    <div className={styles.infos}>
+      {infos.map(info => <div key={info.id}><span className={styles.infoLabel}>{info.label}：</span><span className={styles.infoValue}>{info.value}</span></div>)}
     </div>
     {
       introduction && <div className={styles.introduction}>
@@ -44,8 +44,8 @@ export function TowColumns({ resume }: { resume: Resume }) {
           {
             experiences.map(experience => (
               <div key={experience.id}>
+                <div className={styles.dates}>{experience.startDate} - {experience.endDate || '至今'}</div>
                 <div className={styles.company}>
-                  <div>{experience.startDate} - {experience.endDate || '至今'}</div>
                   <div>{experience.company}</div>
                   <div>{experience.title}</div>
                 </div>
@@ -63,8 +63,8 @@ export function TowColumns({ resume }: { resume: Resume }) {
         <div className={styles.educations}>
           {educations.map(education => (
             <div key={education.id}>
+              <div className={styles.dates}>{education.startDate} - {education.endDate || '至今'}</div>
               <div className={styles.education}>
-                <div>{education.startDate} - {education.endDate || '至今'}</div>
                 <div>{education.school} {education.degree}</div>
                 <div>{education.major}</div>
               </div>
@@ -81,8 +81,8 @@ export function TowColumns({ resume }: { resume: Resume }) {
         <div className={styles.projects}>
           {projects.map(project => (
             <div key={project.id}>
+              <div className={styles.dates}>{project.startDate} - {project.endDate || '至今'}</div>
               <div className={styles.project}>
-                <div>{project.startDate} - {project.endDate || '至今'}</div>
                 <div>{project.name}</div>
                 { project.title && <div>{project.title}</div> }
               </div>

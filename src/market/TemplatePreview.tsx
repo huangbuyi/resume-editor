@@ -6,7 +6,7 @@ class MyHandler extends Handler {
   afterRendered(pages) {
     pages.forEach((page, index) => {
       if (index > 0) {
-        page.element.style.display = "none";
+        // page.element.style.display = "none";
       }
     });
   }
