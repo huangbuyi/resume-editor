@@ -3,6 +3,14 @@
   color: #333;
   line-height: 1.5;
   columns: 2;
+}
+
+.towColumns p {
+  text-indent: 2em;
+  text-align: justify;
+}
+
+.towColumns li {
   text-align: justify;
 }
 

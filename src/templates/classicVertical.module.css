@@ -4,6 +4,15 @@
   line-height: 1.5;
 }
 
+.classicVertical p {
+  text-indent: 2em;
+  text-align: justify;
+}
+
+.classicVertical li {
+  text-align: justify;
+}
+
 .header {
   display: flex;
   gap: 20pt;

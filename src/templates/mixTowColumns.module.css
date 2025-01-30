@@ -4,6 +4,15 @@
   line-height: 1.5;
 }
 
+.mixTowColumns p {
+  text-indent: 2em;
+  text-align: justify;
+}
+
+.mixTowColumns li {
+  text-align: justify;
+}
+
 .header {
   display: flex;
   gap: 20pt;

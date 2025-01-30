@@ -5,6 +5,15 @@
   display: flex;
 }
 
+.sider p {
+  text-indent: 2em;
+  text-align: justify;
+}
+
+.sider li {
+  text-align: justify;
+}
+
 .siderPart {
   width: 30%;
   flex: none;
