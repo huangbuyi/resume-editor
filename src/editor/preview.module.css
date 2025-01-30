@@ -1,5 +1,7 @@
 .preview {
   padding: 16px;
+  width: fit-content;
+  min-width: 100%;
 }
 
 .paper {
