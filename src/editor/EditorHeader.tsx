@@ -46,9 +46,9 @@ export function EditorHeader() {
       <Divider type="vertical" />
       <Popconfirm
         title="清除本地缓存"
-        description="清除本地缓存后，将无法恢复，确定清除?"
+        description="清除本地缓存后，将删除用户输入的全部信息，并加载默认示例，确定清除?"
         onConfirm={clearLocalStorage}
-        okText="清除，加载示例"
+        okText="清除"
         cancelText="取消"
       >
         <Button danger>清除缓存</Button>
