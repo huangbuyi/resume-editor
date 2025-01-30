@@ -5,18 +5,14 @@ import { useReactToPrint } from 'react-to-print';
 import { useEffect, useRef } from 'react';
 import { Previewer } from 'pagedjs';
 import ReactDOMServer from 'react-dom/server';
-import { ClassicVertical } from '../templates/ClassicVertical';
 import { setPrintFn } from './print';
 import { useTemplateStore } from '../resume/template';
-
-// const paged = new Previewer();
 
 export function Preview() {
   const resume = useResumeStore();
   const { getTemplate } = useTemplateStore();
   const contentRef = useRef<HTMLDivElement>(null);
-  const paged = useRef<Previewer >(new Previewer());
-  const rendered = useRef(false);
+  const paged = useRef<Previewer >(new Previewer()); 
 
   const reactToPrintFn = useReactToPrint({
     contentRef,
@@ -25,10 +21,6 @@ export function Preview() {
   setPrintFn(reactToPrintFn);
 
   useEffect(() => {
-    // 防止初始化时渲染两次
-    if (rendered.current) return;
-    rendered.current = true;
-
     const Template = getTemplate();
     if (!Template) return;
     const DOMContent = ReactDOMServer.renderToString(<Template resume={resume} />);
