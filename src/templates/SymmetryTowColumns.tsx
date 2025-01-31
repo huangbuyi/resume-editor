@@ -1,24 +1,20 @@
 import { Resume } from '../resume/resume';
 import { MdDiv } from './components/md';
-import styles from './mixTowColumns.module.css';
+import styles from './symmetryTowColumns.module.css';
 
-export function MixTowColumns({ resume }: { resume: Resume }) {
+export function SymmetryTowColumns({ resume }: { resume: Resume }) {
   const { name, title, profilePicture, infos, skills, experiences, educations, projects, interests, introduction } = resume;
-  return <div className={styles.mixTowColumns}>
+  return <div className={styles.symmetryTowColumns}>
     <div className={styles.header}>
       {
         profilePicture && <div className={styles.profilePicture}>
           <img src={profilePicture} alt="profile" />
         </div>
       }
-      <div>
-        <div className={styles.basic}>
-          <h1 className={styles.name}>{name}</h1>
-          <span className={styles.title}>{title}</span>
-        </div>
-        <div className={styles.infos}>
-          {infos.map(info => <div key={info.id}><span className={styles.infoLabel}>{info.label}：</span><span className={styles.infoValue}>{info.value}</span></div>)}
-        </div>
+      <h1 className={styles.name}>{name}</h1>
+      <div className={styles.title}>{title}</div>
+      <div className={styles.infos}>
+        {infos.map(info => <span key={info.id} className={styles.infoValue}>{info.value}</span>)}
       </div>
     </div>
     <div className={styles.main}>
@@ -33,7 +29,7 @@ export function MixTowColumns({ resume }: { resume: Resume }) {
         <div>
           <h2>技能</h2>
           <div className={styles.skills}>
-            {skills?.map(skill => <div key={skill.id}>{skill.name}{skill.level > 0 && `: ${skillRate(skill.level)}`}</div>)}
+            {skills?.map(skill => <div key={skill.id} className={styles.skillItem}>{skill.name}{skill.level > 0 && `: ${skillRate(skill.level)}`}</div>)}
           </div>
         </div>
       }
@@ -45,10 +41,10 @@ export function MixTowColumns({ resume }: { resume: Resume }) {
             {
               experiences.map(experience => (
                 <div key={experience.id}>
-                  <div className={styles.dates}>{experience.startDate} - {experience.endDate || '至今'}</div>
-                  <div className={styles.company}>
-                    <div>{experience.company}</div>
-                    <div>{experience.title}</div>
+                  <div className={styles.experienceHeader}>
+                    <div className={styles.company}>{experience.company}</div>
+                    <div className={styles.dates}>{experience.startDate} - {experience.endDate || '至今'}</div>
+                    <div className={styles.title}>{experience.title}</div>
                   </div>
                   <MdDiv text={experience.description} />
                 </div>
@@ -64,10 +60,11 @@ export function MixTowColumns({ resume }: { resume: Resume }) {
           <div className={styles.educations}>
             {educations.map(education => (
               <div key={education.id}>
-                <div className={styles.dates}>{education.startDate} - {education.endDate || '至今'}</div>
                 <div className={styles.education}>
-                  <div>{education.school} {education.degree}</div>
-                  <div>{education.major}</div>
+                  <div className={styles.school}>{education.school}</div>
+                  <div className={styles.dates}>{education.startDate} - {education.endDate || '至今'}</div>
+                  <div className={styles.major}>{education.major}</div>
+                  <div className={styles.degree}>{education.degree}</div>
                 </div>
                 <MdDiv text={education.description} />
               </div>
@@ -82,10 +79,10 @@ export function MixTowColumns({ resume }: { resume: Resume }) {
           <div className={styles.projects}>
             {projects.map(project => (
               <div key={project.id}>
-                <div className={styles.dates}>{project.startDate} - {project.endDate || '至今'}</div>
-                <div className={styles.project}>
-                  <div>{project.name}</div>
-                  { project.title && <div>{project.title}</div> }
+                <div className={styles.projectHeader}>
+                  <div className={styles.project}>{project.name}</div>
+                  <div className={styles.dates}>{project.startDate} - {project.endDate || '至今'}</div>
+                  { project.title && <div className={styles.title}>{project.title}</div> }
                 </div>
                 { project.excerpt && <MdDiv text={project.excerpt} /> }
                 <MdDiv text={project.description} />

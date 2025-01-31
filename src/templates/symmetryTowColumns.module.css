@@ -1,0 +1,125 @@
+.symmetryTowColumns {
+  font-size: 12pt;
+  color: #333;
+  line-height: 1.5;
+}
+
+.symmetryTowColumns p {
+  text-indent: 2em;
+  text-align: justify;
+}
+
+.symmetryTowColumns li {
+  text-align: justify;
+}
+
+.symmetryTowColumns h2 {
+  font-size: 14pt;
+  border-bottom: 2px solid #2d72d2;
+}
+
+.header {
+  display: flex;
+  gap: 2pt;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.main {
+  columns: 2;
+  margin-top: 16pt;
+}
+
+.profilePicture {
+  position: absolute;
+  right: 0;
+  width: 48pt;
+  height: 67.2pt;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  flex: none;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 20pt;
+  margin: 0 0 4pt 0;
+  font-weight: bold;
+}
+
+.infos {
+  display: flex;
+  max-width: 140mm;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.infoValue {
+  flex: none;
+  color: #333;
+}
+
+.infoValue:last-child::after {
+  display: none;
+  content: '';
+}
+
+.infoValue::after {
+  content: '|';
+  margin: 0 4pt;
+  color: #999;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.skillItem:nth-child(2n) {
+  text-align: right;
+}
+
+.introduction h2 {
+  margin-top: 0;
+}
+
+.experiences {
+  display: flex;
+  flex-flow: column;
+  gap: 12pt;
+}
+
+.experienceHeader {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.company, .school, .project {
+  font-weight: bold;
+}
+
+.dates, .degree {
+  color: #666;
+  text-align: right;
+}
+
+.title, .major {
+  color: #666;
+}
+
+.education {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.projectHeader {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}

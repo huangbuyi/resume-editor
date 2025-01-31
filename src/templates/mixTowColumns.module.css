@@ -19,7 +19,9 @@
 }
 
 .basic {
-  
+  display: flex;
+  gap: 12pt;
+  align-items: flex-end;
 }
 
 .profilePicture {
@@ -44,7 +46,7 @@
 .infos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 4pt;
+  margin-top: 12pt;
   gap: 1pt;
 }
 
