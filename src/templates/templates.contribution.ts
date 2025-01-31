@@ -38,6 +38,6 @@ registerTemplate({
 
 registerTemplate({
   name: 'SymmetryTowColumns',
-  title: '对称',
+  title: '对称双栏',
   template: SymmetryTowColumns
 })
