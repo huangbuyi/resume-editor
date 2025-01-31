@@ -17,6 +17,10 @@ export const templateRegistry = new (class TemplateRegistry {
     return this.templates;
   }
 
+  getTemplateCount() {
+    return this.templates.length;
+  }
+
   getTemplateByName(name: string) {
     const options = this.templates.find(item => item.name === name);
     if (options) {
