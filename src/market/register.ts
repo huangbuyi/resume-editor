@@ -1,8 +1,10 @@
 import { Resume } from '../resume/resume';
 
 export interface TemplateOptions {
-  name: string;
-  title: string;
+  name: string; // 唯一名称
+  title: string; // 显示名称
+  full?: boolean; // 是否全页面（不包含安全边距）
+  colorful?: boolean; // 是否彩色
   template: React.FC<{ resume: Resume }>
 }
 
@@ -23,10 +25,7 @@ export const templateRegistry = new (class TemplateRegistry {
 
   getTemplateByName(name: string) {
     const options = this.templates.find(item => item.name === name);
-    if (options) {
-      return options.template;
-    }
-    return null;
+    return options || null;
   }
 
   hasTemplateByName(name: string) {

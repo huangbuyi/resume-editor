@@ -1,13 +1,12 @@
 import { create } from 'zustand';
-import { templateRegistry } from '../market/register';
-import { Resume } from './resume';
+import { TemplateOptions, templateRegistry } from '../market/register';
 
 const TEMPLATE_NAME_KEY = 'templateName';
 
 interface TemplateStore {
   templateName: string;
   setTemplate: (name: string) => void;
-  getTemplate: () => React.FC<{ resume: Resume }> | null;
+  getTemplate: () => TemplateOptions | null;
 }
 
 const localName = localStorage.getItem(TEMPLATE_NAME_KEY);

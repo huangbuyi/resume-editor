@@ -1,31 +1,22 @@
 import { useEffect, useRef } from 'react';
-import { Previewer, Handler } from 'pagedjs';
+import { Previewer } from 'pagedjs';
 import ReactDOMServer from 'react-dom/server';
 
-class MyHandler extends Handler {
-  afterRendered(pages) {
-    pages.forEach((page, index) => {
-      if (index > 0) {
-        // page.element.style.display = "none";
-      }
-    });
-  }
-}
-
 interface TemplatePreviewProps {
-  template: React.ReactNode
+  template: React.ReactNode,
+  full?: boolean;
 }
 
-export function TemplatePreview({ template }: TemplatePreviewProps) {
+export function TemplatePreview({ template, full }: TemplatePreviewProps) {
   const contentRef = useRef<HTMLDivElement>(null);
-  const paged = useRef<Previewer >(new Previewer());
-  paged.current.registerHandlers(MyHandler);
+  const paged = useRef<Previewer>(new Previewer());
   
   useEffect(() => {
     const DOMContent = ReactDOMServer.renderToString(template);
-    paged.current.preview(DOMContent, [], contentRef.current)
+    const cssFiles = full ? ['/styles/zeroMariginPage.css'] : ['/styles/oneInchMarginPage.css'];
+    paged.current.preview(DOMContent, cssFiles, contentRef.current)
 
-  }, [template])
+  }, [template, full])
   
   return (
     <div ref={contentRef}></div>

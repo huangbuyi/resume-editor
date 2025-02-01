@@ -21,17 +21,17 @@ export function Preview() {
   setPrintFn(reactToPrintFn);
 
   useEffect(() => {
-    const Template = getTemplate();
-    if (!Template) return;
-    const DOMContent = ReactDOMServer.renderToString(<Template resume={resume} />);
+    const template = getTemplate();
+    if (!template) return;
+    const DOMContent = ReactDOMServer.renderToString(<template.template resume={resume} />);
     
     const scrollParent = getScrollParent(contentRef.current);
     let scrollTop = 0;
     if (scrollParent && (scrollParent as HTMLElement).scrollTop) {
       scrollTop = (scrollParent as HTMLElement).scrollTop;
     }
-
-    paged.current.preview(DOMContent, [], contentRef.current).then(() => {
+    const cssFiles = template.full ? ['/styles/zeroMariginPage.css'] : ['/styles/oneInchMarginPage.css'];
+    paged.current.preview(DOMContent, cssFiles, contentRef.current).then(() => {
       document.title = nameFile(resume);
       if (scrollTop > 0) {
         (scrollParent as HTMLElement).scrollTop = scrollTop;

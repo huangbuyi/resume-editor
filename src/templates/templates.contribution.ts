@@ -5,6 +5,7 @@ import { Sider } from './Sider';
 import { MixTowColumns } from './MixTowColumns';
 import { Symmetry } from './Symmetry';
 import { SymmetryTowColumns } from './SymmetryTowColumns';
+import { FullSider } from './FullSider';
 
 registerTemplate({
   name: 'ClassicVertical',
@@ -40,4 +41,11 @@ registerTemplate({
   name: 'SymmetryTowColumns',
   title: '对称双栏',
   template: SymmetryTowColumns
+})
+
+registerTemplate({
+  name: 'FullSider',
+  title: '全页侧边栏',
+  full: true,
+  template: FullSider
 })
