@@ -3,7 +3,7 @@ import { TemplateOptions, templateRegistry } from './register';
 import { Flex, Form, Radio, Tooltip } from 'antd';
 import { useResumeStore } from '../resume/store';
 import styles from './market.module.css';
-import { TemplatePreview } from './TemplatePreview';
+import { TemplatePreview } from '../preview/TemplatePreview';
 import { useTemplateStore } from '../resume/template';
 import { useNavigate } from 'react-router-dom';
 import { CheckboxGroupProps } from 'antd/es/checkbox';
@@ -70,7 +70,7 @@ export function Market() {
           getTemplates().map((template) => (
             <div key={template.name} className={styles.template}>
               <div className={styles.preview} onClick={() => changeTemplate(template.name)}>
-                <TemplatePreview template={<template.template resume={resume} />} full={template.full} />
+                <TemplatePreview template={<template.template resume={resume} />} home={template.home} margin={template.margin} />
               </div>
               <div className={styles.title}>{template.title}</div>
             </div>

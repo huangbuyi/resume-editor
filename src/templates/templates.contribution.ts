@@ -6,6 +6,7 @@ import { MixTowColumns } from './MixTowColumns';
 import { Symmetry } from './Symmetry';
 import { SymmetryTowColumns } from './SymmetryTowColumns';
 import { FullSider } from './FullSider';
+import Banner from './banner';
 
 registerTemplate({
   name: 'ClassicVertical',
@@ -46,6 +47,15 @@ registerTemplate({
 registerTemplate({
   name: 'FullSider',
   title: '全页侧边栏',
-  full: true,
+  home: 'full',
+  margin: 0.5,
   template: FullSider
+})
+
+registerTemplate({
+  name: 'Banner',
+  title: '横幅',
+  home: 'keepBottom',
+  margin: [1, 0, 1, 0],
+  template: Banner
 })

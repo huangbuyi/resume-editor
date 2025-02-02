@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import { FieldsEditor } from './FieldsEditor';
-import { Preview } from './Preview';
+import { Preview } from '../preview/Preview';
 import styles from './Editor.module.css';
 import { EditorHeader } from './EditorHeader';
 

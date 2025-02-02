@@ -3,7 +3,8 @@ import { Resume } from '../resume/resume';
 export interface TemplateOptions {
   name: string; // 唯一名称
   title: string; // 显示名称
-  full?: boolean; // 是否全页面（不包含安全边距）
+  margin?: number | number[];
+  home?: 'safe' | 'full' | 'keepBottom'; // 首页类型，safe/不设置=安全边距，full=全页面，keepBottom=保留底部边距
   colorful?: boolean; // 是否彩色
   template: React.FC<{ resume: Resume }>
 }

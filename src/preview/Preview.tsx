@@ -7,6 +7,7 @@ import { Previewer } from 'pagedjs';
 import ReactDOMServer from 'react-dom/server';
 import { setPrintFn } from './print';
 import { useTemplateStore } from '../resume/template';
+import { getMarginStyles } from './utils';
 
 export function Preview() {
   const resume = useResumeStore();
@@ -44,7 +45,10 @@ export function Preview() {
   
   return (
     <Flex className={styles.preview} align='center' justify='center' vertical>
-      <div className={`${styles.paper} ${template?.full && styles.fullPage}`} ref={contentRef}></div>
+      <div
+        className={`${styles.paper} ${template?.home ? styles[template.home] : ''}`}
+        style={getMarginStyles(template?.margin)}
+        ref={contentRef}></div>
     </Flex>
   )
 }

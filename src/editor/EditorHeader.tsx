@@ -1,5 +1,5 @@
 import { Button, Divider, Flex, GetProp, Popconfirm, Upload, UploadProps, message } from 'antd';
-import { printResume } from './print';
+import { printResume } from '../preview/print';
 import { clearLocalStorage, downloadJSON, loadJSON } from '../resume/store';
 import { NavLink } from 'react-router-dom';
 import { templateRegistry } from '../market/register';
