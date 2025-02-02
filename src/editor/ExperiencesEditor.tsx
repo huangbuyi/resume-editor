@@ -18,6 +18,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { SortableItem } from './SortableItem';
+import DateEditor from './DateEditor';
 
 const { TextArea } = Input;
 
@@ -73,8 +74,7 @@ export function ExperiencesEditor() {
                   <Input value={experience.title} allowClear onChange={e => setExperience(index, { title: e.target.value })} />
                 </Form.Item>
                 <Form.Item label="时间">
-                  <DatePicker picker="month" placeholder="开始时间" value={dayjs(experience.startDate)} onChange={date => setExperience(index, { startDate: date.format(DateFormat) })} />
-                  <DatePicker picker="month" placeholder="至今" allowClear value={experience.endDate && dayjs(experience.endDate)} onChange={date => setExperience(index, { endDate: date &&  date.format(DateFormat) })} style={{ marginLeft: 8 }}/>
+                  <DateEditor startDate={experience.startDate} endDate={experience.endDate} onChange={date => setExperience(index, date)} />
                 </Form.Item>
                 <Form.Item label="工作内容">
                   <TextArea value={experience.description} allowClear autoSize={{ minRows: 2 }} onChange={e => setExperience(index, { description: e.target.value })} />
