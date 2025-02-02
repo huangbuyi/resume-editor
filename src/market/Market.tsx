@@ -12,7 +12,7 @@ import { QuestionCircleTwoTone } from '@ant-design/icons';
 const marginOptions: CheckboxGroupProps<string>['options'] = [
   { label: '全部', value: '' },
   { label: '安全边距', value: 'safe' },
-  { label: '小、无边距', value: 'full' }
+  { label: '小、无边距', value: 'noSafe' }
 ];
 
 const safeMarginTip = '安全边距指的是页面边缘与内容之间的距离，它保证了所有关键信息都不会因为打印或装订过程中的误差而被裁剪掉或难以阅读';
@@ -43,10 +43,10 @@ export function Market() {
     if (filter.margin === '') {
       return true;
     }
-    if (filter.margin === 'full' && template.full) {
+    if (filter.margin === 'noSafe' && (template.home && template.home !== 'safe')) {
       return true;
     }
-    if (filter.margin === 'safe' && !template.full) {
+    if (filter.margin === 'safe' && (!template.home || template.home === 'safe')) {
       return true;
     }
     return false;
