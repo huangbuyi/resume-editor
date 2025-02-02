@@ -1,4 +1,4 @@
-import { Button, DatePicker, Form, Input, Space } from 'antd';
+import { Button, Form, Input, Space } from 'antd';
 import { useResumeStore } from '../resume/store';
 import dayjs from 'dayjs';
 import { DateFormat } from '../resume/resume';
@@ -18,6 +18,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { SortableItem } from './SortableItem';
+import DateEditor from './DateEditor';
 
 const { TextArea } = Input;
 
@@ -77,8 +78,7 @@ export function ProjectsEditor() {
                   <Input value={project.excerpt} allowClear onChange={e => setProject(index, { excerpt: e.target.value })} />
                 </Form.Item>
                 <Form.Item label="时间">
-                  <DatePicker picker="month" placeholder="开始时间" value={dayjs(project.startDate)} onChange={date => setProject(index, { startDate: date.format(DateFormat) })} />
-                  <DatePicker picker="month" placeholder="至今" allowClear value={project.endDate && dayjs(project.endDate)} onChange={date => setProject(index, { endDate: date &&  date.format(DateFormat) })} style={{ marginLeft: 8 }}/>
+                  <DateEditor startDate={project.startDate} endDate={project.endDate} onChange={date => setProject(index, date)} />
                 </Form.Item>
                 <Form.Item label="工作内容">
                   <TextArea value={project.description} allowClear autoSize={{ minRows: 2 }} onChange={e => setProject(index, { description: e.target.value })} />

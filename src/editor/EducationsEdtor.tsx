@@ -1,4 +1,4 @@
-import { Button, DatePicker, Form, Input, Space } from 'antd';
+import { Button, Form, Input, Space } from 'antd';
 import { useResumeStore } from '../resume/store';
 import dayjs from 'dayjs';
 import { DateFormat } from '../resume/resume';
@@ -18,6 +18,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { SortableItem } from './SortableItem';
+import DateEditor from './DateEditor';
 
 const { TextArea } = Input;
 
@@ -77,8 +78,7 @@ export function EducationsEditor() {
                   <Input value={education.major} allowClear onChange={e => setEducation(index, { major: e.target.value })} />
                 </Form.Item>
                 <Form.Item label="时间">
-                  <DatePicker picker="month" placeholder="开始时间" value={dayjs(education.startDate)} onChange={date => setEducation(index, { startDate: date.format(DateFormat) })} />
-                  <DatePicker picker="month" placeholder="至今" allowClear value={education.endDate && dayjs(education.endDate)} onChange={date => setEducation(index, { endDate: date &&  date.format(DateFormat) })} style={{ marginLeft: 8 }}/>
+                  <DateEditor startDate={education.startDate} endDate={education.endDate} onChange={date => setEducation(index, date)} />
                 </Form.Item>
                 <Form.Item label="简介">
                   <TextArea value={education.description} allowClear autoSize={{ minRows: 2 }} onChange={e => setEducation(index, { description: e.target.value })} />
