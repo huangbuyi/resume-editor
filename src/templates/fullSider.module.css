@@ -20,8 +20,7 @@
   width: 33.3%;
   flex: none;
   border-right: 1px solid #999;
-  margin-right: 12pt;
-  padding: 12pt 24pt;
+  padding: 24pt;
   background-color: var(--primary-color);
   color: #fff;
 }
@@ -29,7 +28,7 @@
 .fullSider h2 {
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
-  line-height: 1.5;
+  line-height: 2;
   font-size: 16pt;
 }
 
@@ -40,10 +39,9 @@
 }
 
 .mainPart {
-  width: 70%;
+  width: 66.7%;
   flex: 1;
-  margin-left: 12pt;
-  padding: 12pt;
+  padding: 24pt;
 }
 
 .header {
