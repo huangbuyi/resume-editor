@@ -3,6 +3,8 @@
   color: #333;
   line-height: 1.5;
   display: flex;
+  --primary-color: #163952;
+  height: 100%;
 }
 
 .fullSider p {
@@ -15,29 +17,61 @@
 }
 
 .fullSiderPart {
-  width: 30%;
+  width: 33.3%;
   flex: none;
   border-right: 1px solid #999;
   margin-right: 12pt;
+  padding: 12pt 24pt;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.fullSider h2 {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  line-height: 1.5;
+  font-size: 16pt;
+}
+
+.fullSiderPart h2 {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  margin-bottom: 0;
 }
 
 .mainPart {
   width: 70%;
   flex: 1;
   margin-left: 12pt;
+  padding: 12pt;
 }
 
 .header {
-  
+  display: flex;
+  justify-content: center;
 }
 
 .basic {
-  
+  padding: 6pt 0 0 56pt;
+  margin-bottom: 54pt;
+  line-height: 1;
+  display: flex;
+  flex-flow: column;
+  gap: 8pt;
+}
+
+.divider {
+  width: 60pt;
+  height: 4pt;
+  background-color: var(--primary-color);
+  margin-top: 2pt;
 }
 
 .profilePicture {
-  width: 72pt;
-  height: 100.8pt;
+  width: 120pt;
+  height: 120pt;
+  border-radius: 60pt;
+  border: solid 4pt #fff;
   overflow: hidden;
   background-color: #f0f0f0;
   flex: none;
@@ -50,8 +84,13 @@
 }
 
 .name {
-  font-size: 24pt;
+  font-size: 28pt;
   margin: 12pt 0 2pt;
+}
+
+.title {
+  font-size: 20pt;
+  color: #666;
 }
 
 .infos {
@@ -62,26 +101,43 @@
   line-height: 1.2;
 }
 
+.infos h2 {
+  margin-top: 2pt;
+}
+
+.infoItem {
+  display: flex;
+}
+
 .infoLabel {
-  color: #999;
-  font-size: 11pt;
+  color: #fff;
+  flex: none;
 }
 
 .infoValue {
-  color: #333;
-  font-size: 12pt;
+  color: #fff;
 }
 
 .skills {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 6pt;
-  margin-top: 24pt;
+  margin-top: 12pt;
 }
 
-.introduction h2 {
-  margin-top: 0;
-  line-height: 1;;
+.blockHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: #666;
+}
+
+.blockHeader > div:first-child {
+  color: #333;
+  font-weight: bold;
+}
+
+.blockHeader > div:nth-child(2n) {
+  text-align: right;
 }
 
 .experiences {

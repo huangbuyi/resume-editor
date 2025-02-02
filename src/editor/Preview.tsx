@@ -12,7 +12,8 @@ export function Preview() {
   const resume = useResumeStore();
   const { getTemplate } = useTemplateStore();
   const contentRef = useRef<HTMLDivElement>(null);
-  const paged = useRef<Previewer >(new Previewer()); 
+  const paged = useRef<Previewer >(new Previewer());
+  const template = getTemplate();
 
   const reactToPrintFn = useReactToPrint({
     contentRef,
@@ -21,7 +22,6 @@ export function Preview() {
   setPrintFn(reactToPrintFn);
 
   useEffect(() => {
-    const template = getTemplate();
     if (!template) return;
     const DOMContent = ReactDOMServer.renderToString(<template.template resume={resume} />);
     
@@ -30,21 +30,21 @@ export function Preview() {
     if (scrollParent && (scrollParent as HTMLElement).scrollTop) {
       scrollTop = (scrollParent as HTMLElement).scrollTop;
     }
-    const cssFiles = template.full ? ['/styles/zeroMariginPage.css'] : ['/styles/oneInchMarginPage.css'];
-    paged.current.preview(DOMContent, cssFiles, contentRef.current).then(() => {
+
+    paged.current.preview(DOMContent, [], contentRef.current).then(() => {
       document.title = nameFile(resume);
       if (scrollTop > 0) {
         (scrollParent as HTMLElement).scrollTop = scrollTop;
       }
     })
 
-    // console.log(paged);
-  }, [resume, getTemplate])
+    console.log(paged);
+  }, [resume, template])
 
   
   return (
     <Flex className={styles.preview} align='center' justify='center' vertical>
-      <div className={styles.paper} ref={contentRef}></div>
+      <div className={`${styles.paper} ${template?.full && styles.fullPage}`} ref={contentRef}></div>
     </Flex>
   )
 }

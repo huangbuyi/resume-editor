@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { templateRegistry } from './register';
+import { TemplateOptions, templateRegistry } from './register';
 import { Flex, Form, Radio, Tooltip } from 'antd';
 import { useResumeStore } from '../resume/store';
 import styles from './market.module.css';
@@ -10,8 +10,9 @@ import { CheckboxGroupProps } from 'antd/es/checkbox';
 import { QuestionCircleTwoTone } from '@ant-design/icons';
 
 const marginOptions: CheckboxGroupProps<string>['options'] = [
+  { label: '全部', value: '' },
   { label: '安全边距', value: 'safe' },
-  { label: '全页面', value: 'full' }
+  { label: '小、无边距', value: 'full' }
 ];
 
 const safeMarginTip = '安全边距指的是页面边缘与内容之间的距离，它保证了所有关键信息都不会因为打印或装订过程中的误差而被裁剪掉或难以阅读';
@@ -26,7 +27,7 @@ export function Market() {
   const templates = useRef(templateRegistry.getTemplates());
   const navigate = useNavigate();
   const [filter, setFilter] = useState<FilterOptions>({
-    margin: 'safe',
+    margin: '',
     color: ''
   });
   function changeTemplate(name: string) {
@@ -35,15 +36,20 @@ export function Market() {
   }
 
   function getTemplates() {
-    return templates.current.filter(template => {
-      if (filter.margin === 'full' && template.full) {
-        return true;
-      }
-      if (filter.margin === 'safe' && !template.full) {
-        return true;
-      }
-      return false;
-    });
+    return templates.current.filter(marginFilter);
+  }
+
+  function marginFilter(template: TemplateOptions) {
+    if (filter.margin === '') {
+      return true;
+    }
+    if (filter.margin === 'full' && template.full) {
+      return true;
+    }
+    if (filter.margin === 'safe' && !template.full) {
+      return true;
+    }
+    return false;
   }
 
   return (

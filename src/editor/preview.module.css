@@ -25,3 +25,17 @@
     margin-bottom: 0 !important;
   }
 }
+
+.fullPage {
+  --pagedjs-margin-top: 0.5in;
+  --pagedjs-margin-right: 0.5in;
+  --pagedjs-margin-left: 0.5in;
+  --pagedjs-margin-bottom: 0.5in
+}
+
+.fullPage :global(.pagedjs_first_page) {
+  --pagedjs-margin-top: 0px;
+  --pagedjs-margin-right: 0px;
+  --pagedjs-margin-left: 0px;
+  --pagedjs-margin-bottom: 0px
+}

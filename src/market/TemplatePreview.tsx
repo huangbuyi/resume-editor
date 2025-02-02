@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Previewer } from 'pagedjs';
 import ReactDOMServer from 'react-dom/server';
+import previewStyles from '../editor/preview.module.css';
 
 interface TemplatePreviewProps {
   template: React.ReactNode,
@@ -13,12 +14,11 @@ export function TemplatePreview({ template, full }: TemplatePreviewProps) {
   
   useEffect(() => {
     const DOMContent = ReactDOMServer.renderToString(template);
-    const cssFiles = full ? ['/styles/zeroMariginPage.css'] : ['/styles/oneInchMarginPage.css'];
-    paged.current.preview(DOMContent, cssFiles, contentRef.current)
+    paged.current.preview(DOMContent, [], contentRef.current);
 
   }, [template, full])
   
   return (
-    <div ref={contentRef}></div>
+    <div className={full ? previewStyles.fullPage : ''} ref={contentRef}></div>
   )
 }
