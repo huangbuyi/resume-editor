@@ -7,6 +7,7 @@ import { Symmetry } from './Symmetry';
 import { SymmetryTowColumns } from './SymmetryTowColumns';
 import { FullSider } from './FullSider';
 import Banner from './banner';
+import TeaBlock from './teaBlock'
 
 registerTemplate({
   name: 'ClassicVertical',
@@ -58,4 +59,12 @@ registerTemplate({
   home: 'keepBottom',
   margin: [1, 0, 1, 0],
   template: Banner
+})
+
+registerTemplate({
+  name: 'TeaBlock',
+  title: '茶色区块',
+  home: 'full',
+  margin: 0,
+  template: TeaBlock
 })
