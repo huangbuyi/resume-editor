@@ -49,7 +49,7 @@ export function SkillsEditor() {
           <ul className="sortable-list">
             {skills.map((skill, index) => (
               <SortableItem key={skill.id} id={skill.id} onDelete={() => removeSkill(index)}>
-                <Form.Item key={index} label={skill.name}>
+                <Form.Item key={index} label={skill.name} labelCol={{ span: 'fit-content' }}>
                   <Rate tooltips={skillLevels} value={skill.level} onChange={level => setSkill(index, { level })} />
                 </Form.Item>
               </SortableItem>
