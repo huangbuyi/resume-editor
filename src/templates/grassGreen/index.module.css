@@ -77,6 +77,7 @@
 .name {
   font-size: 28pt;
   letter-spacing: 0.4em;
+  text-indent: 0.4em;
   text-align: left;
   margin-top: 12pt;
   color: var(--primary-color);
@@ -85,6 +86,7 @@
 .title {
   font-size: 14pt;
   letter-spacing: 0.2em;
+  text-indent: 0.2em;
 }
 
 .infos {
