@@ -9,6 +9,15 @@ import { FullSider } from './FullSider';
 import Banner from './banner';
 import TeaBlock from './teaBlock';
 import PaleGreen from './paleGreen';
+import GrassGreen from './grassGreen';
+
+registerTemplate({
+  name: 'PaleGreen',
+  title: '浅绿现代',
+  margin: 0,
+  home: 'full',
+  template: GrassGreen
+})
 
 registerTemplate({
   name: 'PaleGreen',
