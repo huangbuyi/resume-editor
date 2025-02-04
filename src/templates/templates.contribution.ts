@@ -11,6 +11,15 @@ import TeaBlock from './teaBlock';
 import PaleGreen from './paleGreen';
 import GrassGreen from './grassGreen';
 import BlueCream from './blueCream';
+import PinkGray from './pinkGray';
+
+registerTemplate({
+  name: 'PinkGray',
+  title: '粉灰现代',
+  margin: 0,
+  home: 'full',
+  template: PinkGray
+})
 
 registerTemplate({
   name: 'BlueCream',

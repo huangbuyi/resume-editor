@@ -1,0 +1,167 @@
+.root {
+  --pink: #ff9e8f;
+  --gray: #363740;
+  font-size: 12pt;
+  line-height: 1.5;
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  color: var(--gray);
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.sider {
+  position: relative;
+  width: 40%;
+  flex: none;
+  z-index: 10;
+  color: #fff;
+  background-color: var(--gray);
+}
+
+.basic {
+  width: 100%;
+  color: var(--gray);
+  padding: 48pt 0;
+  background-color: var(--pink);
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.siderContent {
+  padding: 0 24pt;
+}
+
+.root h2 {
+  color: var(--gray);
+  line-height: 2;
+  font-size: 14pt;
+  font-weight: bold;
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--gray);
+  border-bottom: 4pt solid var(--pink);
+  letter-spacing: 0.1em;
+  margin: 24pt 0 12pt;
+}
+
+.sider h2 {
+  color: #fff;
+  margin: 36pt 0 12pt;
+}
+
+.mainPart {
+  position: relative;
+  width: 60%;
+  flex: 1;
+  padding: 0 32pt;
+}
+
+.profilePicture {
+  width: 140pt;
+  aspect-ratio: 1 / 1;
+  flex: none;
+  z-index: 10;
+  display: flex;
+  overflow: hidden;
+  filter: grayscale(100%);
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 36pt;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  text-align: left;
+  margin-top: 12pt;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 14pt;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  margin-top: 3pt;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1.2;
+}
+
+.infoItem {
+  display: flex;
+  gap: 0.5em;
+}
+
+.infoLabel {
+  flex: none;
+  min-width: 3em;
+  font-weight: bold;
+}
+
+.infoValue {
+  /* font-weight: bold; */
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1;
+}
+
+.blockHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: left;
+}
+
+.blockHeader > div:first-child {
+  font-weight: bold;
+}
+
+.blockHeader > div:nth-child(2n) {
+  text-align: right;
+}
+
+.company {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-weight: bold;
+  gap: 8px;
+}
+
+.education {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-weight: bold;
+  gap: 8px;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-weight: bold;
+  gap: 8px;
+}
+
+.interests {
+  padding: 0pt;
+}
