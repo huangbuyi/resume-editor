@@ -7,7 +7,16 @@ import { Symmetry } from './Symmetry';
 import { SymmetryTowColumns } from './SymmetryTowColumns';
 import { FullSider } from './FullSider';
 import Banner from './banner';
-import TeaBlock from './teaBlock'
+import TeaBlock from './teaBlock';
+import PaleGreen from './paleGreen';
+
+registerTemplate({
+  name: 'PaleGreen',
+  title: '浅绿现代',
+  margin: 0,
+  home: 'full',
+  template: PaleGreen
+})
 
 registerTemplate({
   name: 'ClassicVertical',
