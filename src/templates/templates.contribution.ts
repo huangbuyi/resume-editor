@@ -10,10 +10,19 @@ import Banner from './banner';
 import TeaBlock from './teaBlock';
 import PaleGreen from './paleGreen';
 import GrassGreen from './grassGreen';
+import BlueCream from './blueCream';
 
 registerTemplate({
-  name: 'PaleGreen',
-  title: '浅绿现代',
+  name: 'BlueCream',
+  title: '蓝奶油',
+  margin: 0,
+  home: 'full',
+  template: BlueCream
+})
+
+registerTemplate({
+  name: 'GrassGreen',
+  title: '草绿',
   margin: 0,
   home: 'full',
   template: GrassGreen

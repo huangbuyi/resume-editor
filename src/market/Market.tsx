@@ -52,6 +52,8 @@ export function Market() {
     return false;
   }
 
+  console.log(getTemplates);
+
   return (
     <div className={styles.market}>
       <Form size="small" labelCol={{ span: 4 }}>
