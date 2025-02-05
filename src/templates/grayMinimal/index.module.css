@@ -1,0 +1,179 @@
+.root {
+  --dark: #373737;
+  --light: #e0dde0;
+  font-size: 11pt;
+  line-height: 1.5;
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  
+  color: #373737;
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.sider {
+  position: relative;
+  width: 40%;
+  flex: none;
+  z-index: 10;
+  color: var(--light);
+  background-color: var(--dark);
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  padding: 36pt;
+}
+
+.basic {
+  padding: 36pt 0 36pt 46pt;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}
+
+.root h2 {
+  line-height: 2.2;
+  font-size: 13pt;
+  font-weight: bold;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.sider h2 {
+  margin: 24pt 0 6pt 0;
+}
+
+.mainPart {
+  position: relative;
+  width: 60%;
+  flex: 1;
+  padding: 36pt 48pt 36pt;
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+.mainPart h2 {
+  margin: 24pt 0 18pt 0;
+}
+
+.profilePicture {
+  width: 130pt;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3pt solid var(--light);
+  flex: none;
+  z-index: 10;
+  display: flex;
+  overflow: hidden;
+  margin: 24px auto;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 36pt;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  margin-top: 12pt;
+  color: var(--primary-color);
+  font-family: "Source Han Sans", "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+.title {
+  font-size: 13pt;
+  letter-spacing: 0.2em;
+  margin-top: 4pt;
+}
+
+.divider {
+  width: 40%;
+  height: 6pt;
+  background-color: var(--blue);
+  margin-top: 42pt;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8pt;
+  line-height: 1.2;
+}
+
+.infoItem {
+  
+}
+
+.infoLabel {
+  flex: none;
+}
+
+.infoValue {
+  /* font-weight: bold; */
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 6pt;
+  line-height: 1;
+}
+
+.blockHeader {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blockTitle {
+  font-weight: bold;
+}
+
+.blockHeader > div:after {
+  content: '';
+  margin: 0 0.62em;
+  border-right: 1pt solid var(--dark);
+  opacity: 1;
+}
+
+.blockHeader > div:last-child:after {
+  border-right: none;
+}
+
+.dates {
+  font-size: 11pt;
+}
+
+.company {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-weight: bold;
+  gap: 8px;
+}
+
+.education {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-weight: bold;
+  gap: 8px;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-weight: bold;
+  gap: 8px;
+}
+
+.interests {
+  padding: 0pt;
+}

@@ -12,6 +12,15 @@ import PaleGreen from './paleGreen';
 import GrassGreen from './grassGreen';
 import BlueCream from './blueCream';
 import PinkGray from './pinkGray';
+import GrayMinimal from './grayMinimal';
+
+registerTemplate({
+  name: 'GrayMinimal',
+  title: '灰色极简',
+  margin: 0,
+  home: 'full',
+  template: GrayMinimal
+});
 
 registerTemplate({
   name: 'PinkGray',
