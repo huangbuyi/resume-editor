@@ -7,7 +7,7 @@ import { getMarginStyles } from './utils';
 interface TemplatePreviewProps {
   template: React.ReactNode,
   home?: string;
-  margin?: number;
+  margin?: number | number[];
 }
 
 export function TemplatePreview({ template, margin, home }: TemplatePreviewProps) {

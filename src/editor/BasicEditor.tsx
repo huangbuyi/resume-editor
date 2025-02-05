@@ -1,7 +1,8 @@
-import { Button, Flex, Form, GetProp, Input, Upload, UploadProps } from 'antd';
+import { Button, Dropdown, Flex, Form, GetProp, Input, Upload, UploadProps } from 'antd';
 import { useResumeStore } from '../resume/store';
 import { DeleteOutlined, LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import { demos, fetchDemo } from '../resume/demo';
 
 const { TextArea } = Input;
 
@@ -22,7 +23,8 @@ export function BasicEditor() {
     title,
     setTitle,
     introduction,
-    setIntroduction
+    setIntroduction,
+    load
   } = useResumeStore();
   const [loading, setLoading] = useState(false);
 
@@ -35,6 +37,15 @@ export function BasicEditor() {
     return false;
   };
 
+  const handleLoadDemo = async (url: string) => {
+    const data = await fetchDemo(url);
+    load(data);
+  }
+
+  const demoMenu = demos.map(demo => ({
+    key: demo.name,
+    label: <Flex gap={24} justify='space-between' onClick={() => handleLoadDemo(demo.url)}><span style={{ fontWeight: 'bold' }}>{demo.local}</span><span>{demo.title}</span></Flex>,
+  }))
 
   const uploadButton = (
     <button style={{ border: 0, background: 'none' }} type="button">
@@ -47,6 +58,9 @@ export function BasicEditor() {
     <>
       <Form.Item label="姓名">
         <Input value={name} onChange={e => setName(e.target.value)} allowClear  style={{ width: '8em' }} />
+        <Dropdown menu={{ items: demoMenu }} trigger={['click']}>
+          <Button type="primary" style={{ marginLeft: 8 }}>使用示例</Button>
+        </Dropdown>
       </Form.Item>
       <Form.Item label="职位">
         <Input value={title} onChange={e => setTitle(e.target.value)} allowClear  style={{ width: '20em' }} />

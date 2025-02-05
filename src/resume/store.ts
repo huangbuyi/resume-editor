@@ -1,6 +1,6 @@
 import { create} from 'zustand';
 import { Education, Experience, Info, Project, Resume, ResumeData, Skill } from './resume';
-import demo from './demo.json';
+import { fetchDemo } from './demo';
 
 const RESUME_DATA_KEY = 'resumeData';
 const RESUME_DATA_CURRENT_VERSION = 1;
@@ -151,13 +151,14 @@ export const useResumeStore = create<ResumeStore>((set, get) => ({
 initStore();
 useResumeStore.subscribe(storeToLocal);
 
-function initStore() {
+async function initStore() {
   const resumeData = loadFromLocal();
   if (resumeData) {
     useResumeStore.getState().load(resumeData);
     return;
   }
-  useResumeStore.getState().load(demo);
+  const data = await fetchDemo();
+  useResumeStore.getState().load(data);
 }
 
 function storeToLocal(data: ResumeData) {
@@ -180,9 +181,10 @@ function loadFromLocal() {
   return null;
 }
 
-export function clearLocalStorage() {
+export async function clearLocalStorage() {
   localStorage.removeItem(RESUME_DATA_KEY);
-  useResumeStore.getState().load(demo);
+  const data = await fetchDemo();
+  useResumeStore.getState().load(data);
 }
 
 export function downloadJSON() {
