@@ -1,3 +1,7 @@
+.market :global(.ant-form-item) {
+  margin-bottom: 12px;
+}
+
 .template {
   display: flex;
   flex-flow: column;
