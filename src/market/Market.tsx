@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
-import { TemplateOptions, templateRegistry } from './register';
-import { Flex, Form, Radio, Tooltip } from 'antd';
+import { useEffect, useRef, useState } from 'react';
+import { FilterOptions, TemplateOptions, templateRegistry } from './register';
+import { Flex, Form, Pagination, Radio, Tooltip } from 'antd';
 import { useResumeStore } from '../resume/store';
 import styles from './market.module.css';
 import { TemplatePreview } from '../preview/TemplatePreview';
@@ -16,43 +16,34 @@ const marginOptions: CheckboxGroupProps<string>['options'] = [
 ];
 
 const safeMarginTip = '安全边距指的是页面边缘与内容之间的距离，它保证了所有关键信息都不会因为打印或装订过程中的误差而被裁剪掉或难以阅读';
+const pageSize = 10;
 
-interface FilterOptions {
-  margin: string;
-  color: string;
-}
 export function Market() {
   const resume = useResumeStore();
   const { setTemplate } = useTemplateStore();
-  const templates = useRef(templateRegistry.getTemplates());
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const [filter, setFilter] = useState<FilterOptions>({
     margin: '',
     color: ''
   });
-  function changeTemplate(name: string) {
+  const [templateData, setTemplates] = useState<{ total: number; templates: TemplateOptions[]}>({ total: 0, templates: []  });
+
+  const updateTemplates = () => {
+    setTemplates(templateRegistry.getTemplates(page, pageSize, filter));
+  }
+
+  useEffect(updateTemplates, [filter, page]);
+
+  const changeTemplate = (name: string) => {
     setTemplate(name);
     navigate('/');
   }
 
-  function getTemplates() {
-    return templates.current.filter(marginFilter);
-  }
-
-  function marginFilter(template: TemplateOptions) {
-    if (filter.margin === '') {
-      return true;
-    }
-    if (filter.margin === 'noSafe' && (template.home && template.home !== 'safe')) {
-      return true;
-    }
-    if (filter.margin === 'safe' && (!template.home || template.home === 'safe')) {
-      return true;
-    }
-    return false;
-  }
-
-  console.log(getTemplates);
+  const handleFilterChange = (newFilter: Partial<FilterOptions>) => {
+    setFilter(prev => ({ ...prev, ...newFilter }));
+    setPage(1);
+  };
 
   return (
     <div className={styles.market}>
@@ -63,13 +54,14 @@ export function Market() {
             options={marginOptions}
             optionType="button"
             buttonStyle="solid"
-            onChange={e => setFilter({ ...filter, margin: e.target.value })}>
+            onChange={e => handleFilterChange({ margin: e.target.value })}>
           </Radio.Group>
         </Form.Item>
       </Form>
+      <Pagination current={page} pageSize={pageSize} total={templateData.total} onChange={setPage} />
       <Flex gap={32} wrap="wrap" justify="center">
         {
-          getTemplates().map((template) => (
+          templateData.templates.map((template) => (
             <div key={template.name} className={styles.template}>
               <div className={styles.preview} onClick={() => changeTemplate(template.name)}>
                 <TemplatePreview template={<template.template resume={resume} />} home={template.home} margin={template.margin} />
@@ -79,6 +71,7 @@ export function Market() {
           ))
         }
       </Flex>
+      <Pagination current={page} pageSize={pageSize} total={templateData.total} onChange={setPage} />
     </div>
   )
 }

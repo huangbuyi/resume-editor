@@ -5,8 +5,15 @@ export interface TemplateOptions {
   title: string; // 显示名称
   margin?: number | number[];
   home?: 'safe' | 'full' | 'keepBottom'; // 首页类型，safe/不设置=安全边距，full=全页面，keepBottom=保留底部边距
-  colorful?: boolean; // 是否彩色
+  color?: boolean; // 是否彩色
+  columns?: number; // 栏数
   template: React.FC<{ resume: Resume }>
+}
+
+export interface FilterOptions {
+  margin?: '' | 'safe' | 'noSafe';
+  color?: '' | 'color' | 'grayscale';
+  column?: '' | 'single' | 'double' | 'more';
 }
 
 export const templateRegistry = new (class TemplateRegistry {
@@ -16,8 +23,14 @@ export const templateRegistry = new (class TemplateRegistry {
     this.templates.push(template);
   }
 
-  getTemplates() {
-    return this.templates;
+  getTemplates(page: number = 1, pageSize: number = 10, filterOptions: FilterOptions = {}) {
+    const filters = [marginFilter, colorFilter, columnFilter];
+    const templates = this.templates.filter(template => filters.every(filter => filter(template, filterOptions)));
+
+    return {
+      templates: templates.slice((page - 1) * pageSize, page * pageSize),
+      total: templates.length,
+    }
   }
 
   getTemplateCount() {
@@ -36,4 +49,46 @@ export const templateRegistry = new (class TemplateRegistry {
 
 export function registerTemplate(template: TemplateOptions) {
   templateRegistry.register(template);
+}
+
+function marginFilter(template: TemplateOptions, filter: FilterOptions) {
+  if (!filter.margin) {
+    return true;
+  }
+  if (filter.margin === 'noSafe' && (template.home && template.home !== 'safe')) {
+    return true;
+  }
+  if (filter.margin === 'safe' && (!template.home || template.home === 'safe')) {
+    return true;
+  }
+  return false;
+}
+
+function colorFilter(template: TemplateOptions, filter: FilterOptions) {
+  if (!filter.color) {
+    return true;
+  }
+  if (filter.color === 'color' && template.color) {
+    return true;
+  }
+  if (filter.color === 'grayscale' && !template.color) {
+    return true;
+  }
+  return false;
+}
+
+function columnFilter(template: TemplateOptions, filter: FilterOptions) {
+  if (!filter.column) {
+    return true;
+  }
+  if (filter.column === 'single' && template.columns === 1) {
+    return true;
+  }
+  if (filter.column === 'double' && template.columns === 2) {
+    return true;
+  }
+  if (filter.column === 'more' && template.columns && template.columns > 2) {
+    return true;
+  }
+  return false;
 }
