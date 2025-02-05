@@ -55,13 +55,28 @@ function marginFilter(template: TemplateOptions, filter: FilterOptions) {
   if (!filter.margin) {
     return true;
   }
-  if (filter.margin === 'noSafe' && (template.home && template.home !== 'safe')) {
-    return true;
+  if (filter.margin === 'noSafe') {
+    return !isSafeMargin(template) || !isSafeHome(template);
   }
-  if (filter.margin === 'safe' && (!template.home || template.home === 'safe')) {
+  if (filter.margin === 'safe' && isSafeHome(template) && isSafeMargin(template)) {
     return true;
   }
   return false;
+}
+
+function isSafeHome(template: TemplateOptions) {
+  return (!template.home || template.home === 'safe')
+}
+
+function isSafeMargin(template: TemplateOptions) {
+  if (template.margin !== undefined) {
+    if (Array.isArray(template.margin)) {
+      return template.margin.every((m) => m >= 1);
+    } else {
+      return template.margin >= 1;
+    }
+  }
+  return true;
 }
 
 function colorFilter(template: TemplateOptions, filter: FilterOptions) {
