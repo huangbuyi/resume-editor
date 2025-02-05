@@ -96,7 +96,7 @@ function columnFilter(template: TemplateOptions, filter: FilterOptions) {
   if (!filter.column) {
     return true;
   }
-  if (filter.column === 'single' && template.columns === 1) {
+  if (filter.column === 'single' && (template.columns === 1 || !template.columns)) {
     return true;
   }
   if (filter.column === 'double' && template.columns === 2) {

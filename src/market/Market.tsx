@@ -27,7 +27,7 @@ const columnOptions: CheckboxGroupProps<string>['options'] = [
   { label: '全部', value: '' },
   { label: '单栏', value: 'single' },
   { label: '双栏', value: 'double' },
-  { label: '三栏以上', value: 'more' },
+  { label: '三栏及以上', value: 'more' },
 ];
 
 const pageSize = 12;

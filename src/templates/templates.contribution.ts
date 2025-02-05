@@ -28,6 +28,7 @@ registerTemplate({
   title: '绿色灰色',
   margin: 0,
   home: 'full',
+  color: true,
   template: GreenGray,
 })
 
@@ -36,6 +37,7 @@ registerTemplate({
   title: '灰色极简',
   margin: 0,
   home: 'full',
+  color: true,
   template: GrayMinimal
 });
 
@@ -44,6 +46,7 @@ registerTemplate({
   title: '粉灰现代',
   margin: 0,
   home: 'full',
+  color: true,
   template: PinkGray
 })
 
@@ -52,6 +55,7 @@ registerTemplate({
   title: '蓝奶油',
   margin: 0,
   home: 'full',
+  color: true,
   template: BlueCream
 })
 
@@ -60,6 +64,7 @@ registerTemplate({
   title: '草绿',
   margin: 0,
   home: 'full',
+  color: true,
   template: GrassGreen
 })
 
@@ -68,6 +73,7 @@ registerTemplate({
   title: '浅绿现代',
   margin: 0,
   home: 'full',
+  color: true,
   template: PaleGreen
 })
 
@@ -80,6 +86,7 @@ registerTemplate({
 registerTemplate({
   name: 'TowColumns',
   title: '双栏',
+  columns: 2,
   template: TowColumns,
 });
 
@@ -92,18 +99,22 @@ registerTemplate({
 registerTemplate({
   name: 'MixTowColumns',
   title: '混合双栏',
+  columns: 2,
   template: MixTowColumns
 })
 
 registerTemplate({
   name: 'Symmetry',
   title: '对称',
+  color: true,
   template: Symmetry
 })
 
 registerTemplate({
   name: 'SymmetryTowColumns',
   title: '对称双栏',
+  columns: 2,
+  color: true,
   template: SymmetryTowColumns
 })
 
@@ -112,6 +123,7 @@ registerTemplate({
   title: '全页侧边栏',
   home: 'full',
   margin: 0.5,
+  color: true,
   template: FullSider
 })
 
@@ -120,6 +132,8 @@ registerTemplate({
   title: '横幅',
   home: 'keepBottom',
   margin: [1, 0, 1, 0],
+  color: true,
+  columns: 2,
   template: Banner
 })
 
@@ -128,5 +142,6 @@ registerTemplate({
   title: '茶色区块',
   home: 'full',
   margin: 0,
+  color: true,
   template: TeaBlock
 })
