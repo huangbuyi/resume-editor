@@ -1,0 +1,143 @@
+.root {
+  --primary: #56bfcb;
+  --secondary: #4b6d8b;
+  font-size: 12pt;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.root h2 {
+  font-size: 12pt;
+  color: var(--primary);
+  font-weight: bold;
+  margin-top: 42pt;
+  margin-bottom: 8pt;
+}
+
+.header {
+  display: flex;
+  gap: 2pt;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+  padding-bottom: 24pt;
+  border-bottom: 3pt solid var(--primary);
+}
+
+.main {
+  columns: 2;
+  margin-top: 16pt;
+  column-gap: 36pt;
+}
+
+.profilePicture {
+  position: absolute;
+  right: 0;
+  width: 48pt;
+  height: 67.2pt;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  flex: none;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 36pt;
+  margin: 0 0 4pt 0;
+  font-weight: bold;
+  color: var(--primary);
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  line-height: 1;
+}
+
+.title {
+  font-size: 12pt;
+  margin-top: 6pt;
+  line-height: 1;
+}
+
+.infos {
+  
+}
+
+.infoValue {
+  flex: none;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.introduction h2 {
+  margin-top: 0;
+}
+
+.block {
+  position: relative;
+  padding-left: 18pt;
+  margin-top: 24pt;
+}
+
+.block:first-child {
+  margin-top: 12pt;
+}
+
+.block:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6pt;
+  width: 6pt;
+  height: 6pt;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  z-index: 1;
+}
+
+.block:after {
+  content: '';
+  position: absolute;
+  left: 2.5pt;
+  top: 12pt;
+  bottom: -30pt;
+  width: 2pt;
+  background-color: var(--primary);
+  z-index: 0;
+}
+
+.block:last-child:after {
+  bottom: 0;
+}
+
+.blockHeader {
+  font-weight: bold;
+  display: flex;
+  gap: 0 1em;
+  flex-wrap: wrap;
+}
+
+.dates {
+  font-size: 11pt;
+  color: var(--primary);
+}

@@ -1,0 +1,19 @@
+.skillRate {
+  display: flex;
+  gap: 4pt;
+  align-items: center;
+}
+
+.circleFill, .circleOutline {
+  width: 6pt;
+  height: 6pt;
+  border-radius: 50%;
+}
+
+.circleFill {
+  background-color: var(--secondary);
+}
+
+.circleOutline {
+  background-color: var(--primary);
+}

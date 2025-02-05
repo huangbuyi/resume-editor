@@ -15,6 +15,14 @@ import PinkGray from './pinkGray';
 import GrayMinimal from './grayMinimal';
 import GreenGray from './greenGray';
 import WhiteSpace from './whiteSpace';
+import JadeLake from './jadeLake';
+
+registerTemplate({
+  name: 'JadeLake',
+  title: '翡翠湖',
+  margin: 0.75,
+  template: JadeLake,
+});
 
 registerTemplate({
   name: 'WhiteSpace',
