@@ -13,6 +13,12 @@ export const demos = [
     url: 'demos/wangxiaomei.json'
   },
   {
+    name: 'shangguanqingyue',
+    local: '上官清越',
+    title: '职业模特',
+    url: 'demos/shangguanqingyue.json'
+  },
+  {
     name: 'zhangwei',
     local: '张伟',
     title: '产品经理',
