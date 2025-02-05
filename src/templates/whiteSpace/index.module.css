@@ -1,0 +1,104 @@
+.root {
+  font-size: 11pt;
+  color: #000;
+  line-height: 1.5;
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.root h2 {
+  display: inline-block;
+  font-size: 14pt;
+  border-bottom: 3pt solid #000;
+  margin-top: 32pt;
+}
+
+.basic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 30pt;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+.square {
+  width: 14pt;
+  height: 14pt;
+  background-color: #000;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 48pt;
+  gap: 1em;
+  line-height: 1;
+}
+
+.infoItem {
+  display: flex;
+}
+
+.infoLabel {
+  width: 8em;
+  font-weight: bold;
+  flex: none;
+}
+
+.infoValue {
+  color: #333;
+}
+
+.block1 {
+  display: flex;
+  font-weight: bold;
+  margin-top: 32pt;
+}
+
+.col1 {
+  width: 33%;
+  flex: none;
+  font-weight: bold;
+}
+
+.col2 {
+  width: 67%;
+  flex: none;
+}
+
+.block1 h2 {
+  flex: none;
+  height: fit-content;
+  margin-top: 0;
+}
+
+.skills {
+  font-weight: normal;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.block2 {
+  display: flex;
+  margin-bottom: 12pt;
+}
+
+.blockHeader {
+  font-weight: bold;
+}
+
+.introduction {
+  margin-top: -1em;
+}

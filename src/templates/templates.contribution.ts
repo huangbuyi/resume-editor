@@ -13,6 +13,23 @@ import GrassGreen from './grassGreen';
 import BlueCream from './blueCream';
 import PinkGray from './pinkGray';
 import GrayMinimal from './grayMinimal';
+import GreenGray from './greenGray';
+import WhiteSpace from './whiteSpace';
+
+registerTemplate({
+  name: 'WhiteSpace',
+  title: '白色空间',
+  margin: 0.75,
+  template: WhiteSpace,
+})
+
+registerTemplate({
+  name: 'GreenGray',
+  title: '绿色灰色',
+  margin: 0,
+  home: 'full',
+  template: GreenGray,
+})
 
 registerTemplate({
   name: 'GrayMinimal',
