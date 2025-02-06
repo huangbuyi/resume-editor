@@ -20,12 +20,20 @@ import PeachMilkTea from './peachMilkTea';
 import Turquoise from './turquoise';
 import MintyMaple from './mintyMaple';
 import BlackBorder from './blackBorder';
+import PastelBlack from './pastelBlack';
+
+registerTemplate({
+  name: 'PastelBlack',
+  title: '粉彩黑',
+  margin: 0,
+  color: true,
+  template: PastelBlack,
+})
 
 registerTemplate({
   name: 'BlackBorder',
   title: '黑框',
   margin: 0.5,
-  // home: 'keepBottom',
   color: true,
   template: BlackBorder,
 })

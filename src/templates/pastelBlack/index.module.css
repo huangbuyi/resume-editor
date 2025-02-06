@@ -1,0 +1,133 @@
+.root {
+  --primary: #000;
+  --secondary: #c3ffed;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: var(--primary);
+  background-color: #000;
+  height: 100%;
+  padding: 24pt;
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.root h2 {
+  font-size: 13pt;
+  margin-bottom: 8pt;
+  letter-spacing: 0.2em;
+  margin: 0;
+  text-align: center;
+  border-bottom: 2pt solid var(--primary);
+  line-height: 3;
+}
+
+.header {
+  display: flex;
+  gap: 2pt;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+  padding-bottom: 16pt;
+  text-align: center;
+  border-bottom: 2pt solid var(--secondary);
+}
+
+.header p {
+  text-align: center;
+}
+
+.main {
+  display: grid;
+  margin-top: 8pt;
+  gap: 16pt;
+}
+
+.mainBlock {
+  background: #fff;
+  break-inside: avoid;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16pt;
+}
+
+.name {
+  font-size: 32pt;
+  color: var(--secondary);
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  line-height: 1;
+}
+
+.title {
+  margin-top: 6pt;
+  line-height: 1;
+  color: #ffd1ac;
+}
+
+.divider {
+  width: 32pt;
+  height: 4pt;
+  background-color: var(--secondary);
+  margin-top: 12pt;
+}
+
+.infos {
+  color: var(--secondary);
+  text-align: center;
+  opacity: 0.8;
+}
+
+.infoValue {
+  flex: none;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+}
+
+.skillItem {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+h2.infosHead {
+  margin-top: 0;
+}
+
+.blockTitle {
+  font-weight: bold;
+}
+
+.blockHeader {
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  color: var(--primary);
+  align-items: center;
+}
+
+.experiences, .educations, .projects {
+  display: flex;
+  gap: 16pt;
+  justify-content: center;
+}
+
+.experiences, .educations, .projects, .introduction, .skills, .interests {
+  padding: 16pt;
+}
+
+.introduction {
+  padding-top: 6pt;
+}
