@@ -1,0 +1,112 @@
+.root {
+  --primary: #b7e2d8;
+  --secondary: #85403a;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: var(--secondary);
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.root h2 {
+  font-size: 13pt;
+  color: var(--primary);
+  margin-top: 42pt;
+  margin-bottom: 8pt;
+  letter-spacing: 0.2em;
+}
+
+.header {
+  display: flex;
+  gap: 2pt;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+  padding-bottom: 24pt;
+  text-align: center;
+}
+
+.header p {
+  text-align: center;
+}
+
+.main {
+  columns: 2;
+  margin-top: 16pt;
+  column-gap: 36pt;
+}
+
+.name {
+  font-size: 32pt;
+  color: var(--primary);
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  line-height: 1;
+}
+
+.title {
+  font-size: 12pt;
+  margin-top: 12pt;
+  line-height: 1;
+}
+
+.divider {
+  width: 32pt;
+  height: 4pt;
+  background-color: var(--secondary);
+  margin-top: 12pt;
+}
+
+.infos {
+  
+}
+
+.infoValue {
+  flex: none;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.introduction h2 {
+  margin-top: 12pt;
+}
+
+.block {
+  margin-top: 24pt;
+}
+
+h2.infosHead {
+  margin-top: 0;
+}
+
+.blockHeader {
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--primary);
+}
+
+.blockHeader > div:after {
+  content: '';
+  border-right: 1px solid var(--primary);
+  margin: 0 .4em;
+}
+
+.blockHeader > div:last-child:after {
+  display: none;
+}

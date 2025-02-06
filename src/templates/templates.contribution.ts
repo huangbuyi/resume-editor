@@ -17,6 +17,27 @@ import GreenGray from './greenGray';
 import WhiteSpace from './whiteSpace';
 import JadeLake from './jadeLake';
 import PeachMilkTea from './peachMilkTea';
+import Turquoise from './turquoise';
+import MintyMaple from './mintyMaple';
+
+
+registerTemplate({
+  name: 'MintyMaple',
+  title: '薄荷枫叶',
+  margin: 0.5,
+  columns: 2,
+  color: true,
+  template: MintyMaple,
+});
+
+registerTemplate({
+  name: 'Turquoise',
+  title: '绿松石',
+  margin: [0, 0, 0.5, 0],
+  home: 'keepBottom',
+  color: true,
+  template: Turquoise,
+})
 
 registerTemplate({
   name: 'PeachMilkTea',
