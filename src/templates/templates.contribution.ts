@@ -16,11 +16,23 @@ import GrayMinimal from './grayMinimal';
 import GreenGray from './greenGray';
 import WhiteSpace from './whiteSpace';
 import JadeLake from './jadeLake';
+import PeachMilkTea from './peachMilkTea';
+
+registerTemplate({
+  name: 'PeachMilkTea',
+  title: '蜜桃奶茶',
+  margin: [0, 0, 0.5, 0],
+  home: 'keepBottom',
+  color: true,
+  template: PeachMilkTea,
+})
 
 registerTemplate({
   name: 'JadeLake',
   title: '翡翠湖',
   margin: 0.75,
+  columns: 2,
+  color: true,
   template: JadeLake,
 });
 

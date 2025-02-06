@@ -1,0 +1,208 @@
+.root {
+  --primary: #e2cac2;
+  --secondary: #5b433b;
+  --tertiary: #a7a29a;
+  font-size: 12pt;
+  line-height: 1.5;
+  justify-content: flex-end;
+  height: 100%;
+  color: var(--secondary);
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.main::before {
+  content: '';
+  width: 160pt;
+  height: 120pt;
+  position: absolute;
+  top: 746pt;
+  right: 40pt;
+  background: radial-gradient(circle at 1.5pt 1.5pt, var(--tertiary), var(--tertiary) 1.5pt, transparent 1.5pt) repeat;
+  background-size: 18pt 18pt;
+  z-index: 0;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+  height: 2in;
+  color: var(--secondary);
+  background-color: var(--primary);
+  display: flex;
+}
+
+.header::before {
+  content: '';
+  width: 60pt;
+  height: 120pt;
+  position: absolute;
+  right: -4pt;
+  bottom: -40pt;
+  background: radial-gradient(circle at 1.2pt 1.2pt, var(--tertiary), var(--tertiary) 1.2pt, transparent 1.2pt) repeat;
+  background-size: 12pt 12pt;
+}
+
+.header::after {
+  content: '';
+  width: 160pt;
+  height: 120pt;
+  position: absolute;
+  left: -4pt;
+  top: -40pt;
+  background: radial-gradient(circle at 2pt 2pt, var(--tertiary), var(--tertiary) 2pt, transparent 2pt) repeat;
+  background-size: 18pt 18pt;
+}
+
+.basic {
+  margin-left: 64pt;
+  margin-top: 44pt;
+}
+
+.main {
+  display: flex;
+}
+
+.siderContent {
+  padding: 0 24pt;
+}
+
+.root h2 {
+  color: var(--secondary);
+  line-height: 1.5;
+  font-size: 16pt;
+  margin: 0;
+  box-sizing: border-box;
+  border-left: 4pt solid var(--tertiary);
+  margin: 36pt 0 12pt;
+  padding-left: 0.3em;
+  font-weight: normal;
+}
+
+.sider {
+  position: relative;
+  width: 35%;
+  flex: none;
+  z-index: 10;
+  border-right: 2pt solid var(--tertiary);
+  padding-top: 48pt;
+  margin-top: 36pt;
+}
+
+.sider:before {
+  content: '';
+  position: absolute;
+  width: 150pt;
+  height: 150pt;
+  border-radius: 50%;
+  position: absolute;
+  left: -20pt;
+  bottom: 12pt;
+  background-color: var(--primary);
+  z-index: -1;
+}
+
+.sider::after {
+  content: '';
+  width: 120pt;
+  height: 60pt;
+  border-radius: 30pt 0 0 30pt;
+  position: absolute;
+  bottom: 0pt;
+  right: -492pt;
+  background-color: var(--primary);
+  z-index: -1;
+}
+
+.mainPart {
+  position: relative;
+  width: 65%;
+  flex: 1;
+  padding: 32pt 32pt;
+}
+
+.mainBlock {
+  padding-left: 8pt;
+}
+
+.profilePicture {
+  width: 140pt;
+  height: 190pt;
+  flex: none;
+  border-radius: 70pt 70pt 0 0;
+  z-index: 10;
+  display: flex;
+  overflow: hidden;
+  filter: primaryscale(100%);
+  margin-left: 32pt;
+  margin-top: 36pt;
+  flex: none;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 36pt;
+  letter-spacing: 0.2em;
+  text-align: left;
+  line-height: 1;
+  margin-top: 12pt;
+}
+
+.title {
+  font-size: 14pt;
+  letter-spacing: 0.2em;
+  line-height: 1;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1.2;
+  padding-left: 8pt;
+}
+
+.infoItem {
+  display: flex;
+  flex-flow: wrap;
+  gap: 0 0.5em;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1;
+  padding-left: 8pt;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blockHeader {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: left;
+}
+
+.blockHeader > div:first-child {
+  font-size: 14pt;
+}
+
+.interests {
+  padding-left: 8pt;
+}
