@@ -19,7 +19,16 @@ import JadeLake from './jadeLake';
 import PeachMilkTea from './peachMilkTea';
 import Turquoise from './turquoise';
 import MintyMaple from './mintyMaple';
+import BlackBorder from './blackBorder';
 
+registerTemplate({
+  name: 'BlackBorder',
+  title: '黑框',
+  margin: 0.5,
+  // home: 'keepBottom',
+  color: true,
+  template: BlackBorder,
+})
 
 registerTemplate({
   name: 'MintyMaple',
