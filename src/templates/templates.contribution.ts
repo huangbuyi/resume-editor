@@ -24,6 +24,17 @@ import PastelBlack from './pastelBlack';
 import CentralAxis from './centralAxis';
 import GrayishBrownMinimal from './grayishBrownMinimal';
 import OrangeYellow from './orangeYellow';
+import PurplePink from './purplePink';
+
+
+registerTemplate({
+  name: 'PurplePink',
+  title: '紫粉渐变',
+  margin: 0.5,
+  columns: 2,
+  color: true,
+  template: PurplePink,
+});
 
 registerTemplate({
   name: 'OrangeYellow',
