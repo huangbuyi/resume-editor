@@ -21,6 +21,13 @@ import Turquoise from './turquoise';
 import MintyMaple from './mintyMaple';
 import BlackBorder from './blackBorder';
 import PastelBlack from './pastelBlack';
+import CentralAxis from './centralAxis';
+
+registerTemplate({
+  name: 'CentralAxis',
+  title: '中轴线',
+  template: CentralAxis,
+})
 
 registerTemplate({
   name: 'PastelBlack',
