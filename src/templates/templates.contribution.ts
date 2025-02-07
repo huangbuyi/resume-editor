@@ -22,6 +22,15 @@ import MintyMaple from './mintyMaple';
 import BlackBorder from './blackBorder';
 import PastelBlack from './pastelBlack';
 import CentralAxis from './centralAxis';
+import GrayishBrownMinimal from './grayishBrownMinimal';
+
+registerTemplate({
+  name: 'GrayishBrownMinimal',
+  title: '灰棕极简',
+  columns: 2,
+  color: true,
+  template: GrayishBrownMinimal,
+});
 
 registerTemplate({
   name: 'CentralAxis',

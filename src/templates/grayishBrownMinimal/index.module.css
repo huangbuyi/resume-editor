@@ -1,0 +1,121 @@
+.root {
+  --primary: #a9a4a1;
+  --secondary: #43413d;
+  font-size: 11pt;
+  line-height: 1.4;
+  color: var(--secondary);
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.root h2 {
+  font-size: 13pt;
+  color: var(--secondary);
+  margin-top: 42pt;
+  margin-bottom: 8pt;
+  letter-spacing: 0.1em;
+}
+
+.header {
+  position: absolute;
+  left: -1in;
+  top: -1in;
+  right: -1in;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24pt;
+  padding: 1in 1in 24pt 1in;
+  height: 220pt;
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.main {
+  columns: 2;
+  margin-top: 220pt;
+  column-gap: 24pt;
+}
+
+.main > div:first-child h2 {
+  margin-top: 0;
+}
+
+.name {
+  font-size: 42pt;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 14pt;
+  margin-top: 24pt;
+  line-height: 1;
+  letter-spacing: 0.2em;
+}
+
+.divider {
+  width: 32pt;
+  height: 4pt;
+  background-color: var(--secondary);
+  margin-top: 12pt;
+}
+
+.infos {
+  
+}
+
+.infoValue {
+  flex: none;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.introduction {
+  font-size: 10pt;
+}
+
+.introduction h2 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.block {
+  margin-top: 12pt;
+}
+
+.blockTitle {
+  font-weight: bold;
+}
+
+.blockHeader {
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--primary);
+}
+
+.blockHeader > div:after {
+  content: '';
+  border-right: 1px solid var(--primary);
+  margin: 0 .4em;
+}
+
+.blockHeader > div:last-child:after {
+  display: none;
+}
