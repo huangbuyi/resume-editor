@@ -1,0 +1,146 @@
+.root {
+  --primary: #f3c913;
+  --secondary: #bcbdc1;
+  font-size: 12pt;
+  line-height: 1.5;
+  justify-content: flex-end;
+  height: 100%;
+  color: #000;
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  border-bottom: 1pt solid var(--secondary);
+  padding-bottom: 36pt;
+}
+
+.headerRight {
+  text-align: right;
+  margin-left: auto;
+}
+
+.main {
+  display: flex;
+  color: #333;
+  gap: 28pt;
+}
+
+.root h2 {
+  line-height: 1;
+  font-size: 11pt;
+  border-left: 4pt solid var(--tertiary);
+  margin: 20pt 0 8pt;
+  font-weight: bold;
+  padding: 6pt 15pt;
+  background-color: var(--primary);
+  display: inline-block;
+}
+
+.sider {
+  position: relative;
+  width: 180pt;
+  flex: none;
+  z-index: 10;
+  margin-top: 20pt;
+}
+
+.mainPart {
+  position: relative;
+  flex: 1;
+  margin-top: 20pt;
+}
+
+.introduction h2 {
+  margin: 0;
+}
+
+.profilePicture {
+  width: 216pt;
+  margin-left: -36pt;
+  height: 180pt;
+  flex: none;
+  z-index: 10;
+  display: flex;
+  overflow: hidden;
+  filter: primaryscale(100%);
+  flex: none;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 36pt;
+  text-align: left;
+  line-height: 1;
+}
+
+.title {
+  font-size: 14pt;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  margin-top: 8pt;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1.2;
+  color: #666;
+  justify-items: end;
+}
+
+.infoLabel {
+  min-width: 4em;
+}
+
+.infoItem {
+  display: flex;
+  flex-flow: wrap;
+  gap: 0 0.5em;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blockTitle {
+  font-weight: bold;
+}
+
+.blockHeader {
+  display: flex;
+}
+
+.blockHeader div:after {
+  content: '';
+  border-right: 1px solid var(--secondary);
+  margin: 1em;
+}
+
+.blockHeader div:last-child:after {
+  display: none;
+}

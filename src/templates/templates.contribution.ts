@@ -23,6 +23,14 @@ import BlackBorder from './blackBorder';
 import PastelBlack from './pastelBlack';
 import CentralAxis from './centralAxis';
 import GrayishBrownMinimal from './grayishBrownMinimal';
+import OrangeYellow from './orangeYellow';
+
+registerTemplate({
+  name: 'OrangeYellow',
+  title: '橙黄现代',
+  margin: 0.5,
+  template: OrangeYellow,
+});
 
 registerTemplate({
   name: 'GrayishBrownMinimal',
