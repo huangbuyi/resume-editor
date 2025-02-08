@@ -1,0 +1,201 @@
+.root {
+  --primary: #000;
+  --secondary: #1d3689;
+  font-size: 11pt;
+  line-height: 1.5;
+  justify-content: flex-end;
+  color: rgba(255,255,255,.6);
+  background-color: var(--primary);
+  min-height: 100%;
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.main {
+  display: flex;
+}
+
+.root h2 {
+  line-height: 1;
+  font-size: 14pt;
+  margin: 32pt 0 8pt;
+  font-weight: bold;
+  font-weight: bold;
+  display: inline-block;
+  color: #fff;
+  letter-spacing: .2em;
+}
+
+.sider {
+  position: absolute;
+  left: 24pt;
+  bottom: 24pt;
+  width: 40%;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 24pt;
+  box-sizing: border-box;
+}
+
+.decorateImg {
+  position: absolute;
+  left: -72pt;
+  top: -40pt;
+  width: 340pt;
+}
+
+.introduction h2 {
+  margin-bottom: 0;
+}
+
+.siderPlaceholder {
+  width: 40%;
+  margin-left: 24px;
+  flex: none;
+}
+
+.mainPart {
+  position: relative;
+  flex: 1;
+  padding: 24pt;
+}
+
+.mainPart > div:first-child h2 {
+  margin-top: 0;
+}
+
+.profilePicture {
+  width: 80%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  flex: none;
+  opacity: 0.8;
+  margin: 0 auto;
+  filter: 
+    grayscale(100%) /* 将图像转换为灰度 */
+    contrast(130%) /* 提高对比度以增强立体感 */
+    brightness(95%) /* 微调亮度，确保不过曝也不过暗 */
+    drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.3)); /* 增加阴影效果，增强立体感 */
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 36pt;
+  text-align: left;
+  line-height: 1;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: .2em;
+}
+
+.title {
+  font-size: 12pt;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  margin-top: 12pt;
+  background-color: var(--secondary);
+  color: #fff;
+  padding: 4pt 12pt;
+  display: inline-block;
+  width: fit-content;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16pt;
+  line-height: 1.5;
+  margin-top: 36pt;
+  color: rgba(255,255,255,.87)
+}
+
+.infoLabel {
+  color: var(--secondary);
+}
+
+.infoItem {
+  display: flex;
+  flex-flow: column;
+  gap: 0 0.5em;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12pt;
+  line-height: 1;
+  margin-top: 8pt;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blockTitle {
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+.blockHeader {
+  display: flex;
+  color: rgba(255,255,255,1)
+}
+
+.blockHeader div:after {
+  content: '';
+  border-right: 1px solid rgba(255,255,255,.38);
+  margin: 0 0.5em;
+}
+
+.blockHeader div:last-child:after {
+  display: none;
+}
+
+.block {
+  position: relative;
+  padding-left: 18pt;
+}
+
+.block:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6pt;
+  width: 6pt;
+  height: 6pt;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  z-index: 1;
+}
+
+.block:after {
+  content: '';
+  position: absolute;
+  left: 2.5pt;
+  top: 12pt;
+  bottom: -18pt;
+  width: 1pt;
+  background-color: rgba(255,255,255,.38);
+  z-index: 0;
+}
+
+.block:last-child:after {
+  bottom: 0;
+}

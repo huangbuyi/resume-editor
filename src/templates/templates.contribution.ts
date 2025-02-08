@@ -27,6 +27,15 @@ import OrangeYellow from './orangeYellow';
 import PurplePink from './purplePink';
 import WhiteBlack from './whiteBlack';
 import PinkRose from './pinkRose';
+import BlackBlue from './blackBlue';
+
+registerTemplate({
+  name: 'BlackBlue',
+  title: '黑蓝现代',
+  margin: 0,
+  color: true,
+  template: BlackBlue,
+});
 
 registerTemplate({
   name: 'PinkRose',
