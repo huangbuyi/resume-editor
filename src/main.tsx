@@ -14,7 +14,7 @@ dayjs.locale('zh-cn');
 
 createRoot(document.getElementById('root')!).render(
   <ConfigProvider locale={zhCN}>
-    <BrowserRouter>
+    <BrowserRouter basename="/resume-show">
       <Routes>
         <Route path="/" element={<Editor />} />
         <Route element={<AppLayout />}>
