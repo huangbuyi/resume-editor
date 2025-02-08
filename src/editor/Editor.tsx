@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import { FieldsEditor } from './FieldsEditor';
 import { Preview } from '../preview/Preview';
-import styles from './Editor.module.css';
+import styles from './editor.module.css';
 import { EditorHeader } from './EditorHeader';
 
 const { Header, Sider, Content } = Layout;
