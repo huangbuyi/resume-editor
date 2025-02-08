@@ -1,0 +1,158 @@
+.root {
+  --primary: #ffde2c;
+  --secondary: #000;
+  font-size: 11pt;
+  line-height: 1.5;
+  justify-content: flex-end;
+  color: var(--secondary);
+  min-height: 100%;
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.main {
+  display: flex;
+}
+
+.root h2 {
+  line-height: 1;
+  font-size: 14pt;
+  margin: 32pt 0 8pt;
+  font-weight: bold;
+  font-weight: bold;
+  display: inline-block;
+  color: var(--secondary);
+}
+
+.sider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 44%;
+  background-color: var(--primary);
+  padding: 48pt 32pt;
+  color: var(--secondary);
+  display: flex;
+  flex-flow: column;
+}
+
+.sider::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: 80pt;
+  height: 220pt;
+  background-color: var(--primary);
+  clip-path: path('M0,0 Q0,200 100,400 L0,400 ');
+}
+
+.introduction h2 {
+  margin-bottom: 0;
+}
+
+.siderPlaceholder {
+  width: 44%;
+  flex: none;
+}
+
+.mainPart {
+  position: relative;
+  flex: 1;
+  padding: 32pt;
+  padding-top: 158pt;
+  background-color: transparent;
+}
+
+.mainPart > div:first-child h2 {
+  margin-top: 0;
+}
+
+.name {
+  font-size: 36pt;
+  text-align: left;
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: .2em;
+}
+
+.title {
+  font-size: 14pt;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  margin-top: 16pt;
+}
+
+.divider {
+  width: 36pt;
+  height: 3pt;
+  background-color: #fff;
+  margin-top: 12pt;
+}
+
+.divider2 {
+  width: 36pt;
+  height: 3pt;
+  background-color: #fff;
+  margin-top: auto;
+}
+
+h2.interestHead {
+  margin-top: 16pt;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1.2;
+  margin-top: 24pt;
+}
+
+.infoLabel {
+  min-width: 4em;
+}
+
+.infoItem {
+  display: flex;
+  flex-flow: wrap;
+  gap: 0 0.5em;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blockTitle {
+  font-weight: bold;
+}
+
+.blockHeader {
+  display: flex;
+}
+
+.blockHeader div:after {
+  content: '';
+  border-right: 1px solid var(--secondary);
+  margin: 0 0.5em;
+}
+
+.blockHeader div:last-child:after {
+  display: none;
+}

@@ -28,6 +28,16 @@ import PurplePink from './purplePink';
 import WhiteBlack from './whiteBlack';
 import PinkRose from './pinkRose';
 import BlackBlue from './blackBlue';
+import HoneyBee from './honeyBee';
+
+registerTemplate({
+  name: 'HoneyBee',
+  title: '蜜蜂',
+  home: 'full',
+  margin: 0.5,
+  color: true,
+  template: HoneyBee,
+});
 
 registerTemplate({
   name: 'BlackBlue',
