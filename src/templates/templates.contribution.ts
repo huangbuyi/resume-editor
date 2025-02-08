@@ -26,6 +26,15 @@ import GrayishBrownMinimal from './grayishBrownMinimal';
 import OrangeYellow from './orangeYellow';
 import PurplePink from './purplePink';
 import WhiteBlack from './whiteBlack';
+import PinkRose from './pinkRose';
+
+registerTemplate({
+  name: 'PinkRose',
+  title: '粉红玫瑰',
+  margin: 0.5,
+  color: true,
+  template: PinkRose,
+});
 
 registerTemplate({
   name: 'WhiteBlack',

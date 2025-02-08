@@ -1,0 +1,145 @@
+.root {
+  --primary: #ef7271;
+  --secondary: #56878b;
+  font-size: 12pt;
+  line-height: 1.5;
+  justify-content: flex-end;
+  color: rgba(255,255,255,.87);
+  min-height: 100%;
+  color: #333;
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.main {
+  display: flex;
+  gap: 36pt;
+}
+
+.root h2 {
+  line-height: 1;
+  font-size: 16pt;
+  margin: 32pt 0 8pt;
+  font-weight: bold;
+  font-weight: bold;
+  display: inline-block;
+  color: var(--primary);
+}
+
+.sider {
+  position: relative;
+  width: 33%;
+  z-index: 10;
+  height: 100%;
+}
+
+.profilePicture {
+  width: 100%;
+  aspect-ratio: 1 / 1.5;
+  overflow: hidden;
+  flex: none;
+  filter: 
+    brightness(0.95) /* 稍微降低亮度 */
+    contrast(0.85) /* 减少对比度 */
+    sepia(0.1) /* 添加少量的棕褐色调 */
+    saturate(0.9) /* 略微降低饱和度 */
+    hue-rotate(-10deg) /* 调整色调，向更暖的方向旋转 */
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 36pt;
+  text-align: left;
+  line-height: 1;
+  color: var(--primary);
+  margin-top: 20pt;
+  font-weight: bold;
+  letter-spacing: .2em;
+}
+
+.title {
+  font-size: 14pt;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  margin-top: 10pt;
+  color: var(--secondary);
+}
+
+.introduction h2 {
+  margin-top: 24pt;
+  margin-bottom: 0;
+}
+
+.mainPart {
+  position: relative;
+  flex: 1;
+}
+
+.mainPart > div:first-child h2 {
+  margin-top: 0;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1.2;
+  margin-top: 40pt;
+}
+
+.infoLabel {
+  color: var(--secondary);
+}
+
+.infoItem {
+  display: flex;
+  flex-flow: wrap;
+  gap: 0 0.5em;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skillName {
+  color: var(--secondary);
+}
+
+.blockTitle {
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+.blockHeader {
+  display: flex;
+}
+
+.blockHeader div:after {
+  content: '';
+  border-right: 1px solid #333;
+  margin: 0 0.5em;
+}
+
+.blockHeader div:last-child:after {
+  display: none;
+}
