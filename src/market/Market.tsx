@@ -60,6 +60,10 @@ export function Market() {
 
   useEffect(updateTemplates, [filter, page]);
 
+  useEffect(() => {
+    document.title = `简历秀 - 模板市场`;
+  }, []);
+
   const changeTemplate = (name: string) => {
     setTemplate(name);
     navigate('/');
