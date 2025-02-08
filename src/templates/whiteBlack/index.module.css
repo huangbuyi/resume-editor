@@ -1,0 +1,143 @@
+.root {
+  --primary: #fff;
+  --secondary: #000;
+  font-size: 11pt;
+  line-height: 1.5;
+  justify-content: flex-end;
+  color: rgba(255,255,255,.87);
+  background-color: var(--secondary);
+  min-height: 100%;
+}
+
+.root p {
+  text-align: justify;
+}
+
+.root li {
+  text-align: justify;
+}
+
+.main {
+  display: flex;
+}
+
+.root h2 {
+  line-height: 1;
+  font-size: 16pt;
+  margin: 32pt 0 8pt;
+  font-weight: bold;
+  font-weight: bold;
+  display: inline-block;
+  color: var(--primary);
+}
+
+.sider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 10;
+  background-color: var(--primary);
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  height: 100%;
+  overflow: hidden;
+  padding: 24pt;
+  color: var(--secondary);
+}
+
+.sider h2 {
+  color: var(--secondary);
+}
+
+.decorateImg {
+  position: absolute;
+  left: -72pt;
+  top: -40pt;
+  width: 340pt;
+}
+
+.introduction h2 {
+  margin-top: 24pt;
+  margin-bottom: 0;
+}
+
+.siderPlaceholder {
+  width: 50%;
+  flex: none;
+}
+
+.mainPart {
+  position: relative;
+  flex: 1;
+  background-color: var(--secondary);
+  padding: 24pt;
+}
+
+.mainPart > div:first-child h2 {
+  margin-top: 0;
+}
+
+.name {
+  font-size: 36pt;
+  text-align: left;
+  line-height: 1;
+}
+
+.title {
+  font-size: 14pt;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  margin-top: 24pt;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1.2;
+  margin-top: 24pt;
+}
+
+.infoLabel {
+  min-width: 4em;
+}
+
+.infoItem {
+  display: flex;
+  flex-flow: wrap;
+  gap: 0 0.5em;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4pt;
+  line-height: 1;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blockTitle {
+  font-weight: bold;
+}
+
+.blockHeader {
+  display: flex;
+}
+
+.blockHeader div:after {
+  content: '';
+  border-right: 1px solid rgba(255,255,255,.38);
+  margin: 0 0.5em;
+}
+
+.blockHeader div:last-child:after {
+  display: none;
+}

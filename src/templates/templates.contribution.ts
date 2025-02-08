@@ -25,7 +25,15 @@ import CentralAxis from './centralAxis';
 import GrayishBrownMinimal from './grayishBrownMinimal';
 import OrangeYellow from './orangeYellow';
 import PurplePink from './purplePink';
+import WhiteBlack from './whiteBlack';
 
+registerTemplate({
+  name: 'WhiteBlack',
+  title: '白加黑',
+  margin: 0,
+  color: true,
+  template: WhiteBlack,
+});
 
 registerTemplate({
   name: 'PurplePink',
