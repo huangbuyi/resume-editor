@@ -25,6 +25,7 @@ export function TemplatePreview({ template, margin, home, onClick }: TemplatePre
   
   useEffect(() => {
     const DOMContent = ReactDOMServer.renderToString(template);
+    if (contentRef.current === null) return;
     paged.current.preview(DOMContent, [], contentRef.current).then((preview) => {
       setRendered(true);
       pageCount.current = preview.total;

@@ -32,6 +32,8 @@ export function Preview() {
       scrollTop = (scrollParent as HTMLElement).scrollTop;
     }
 
+    if (contentRef.current === null) return;
+
     paged.current.preview(DOMContent, [], contentRef.current).then(() => {
       document.title = nameFile(resume);
       if (scrollTop > 0) {

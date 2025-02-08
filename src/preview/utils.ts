@@ -5,7 +5,7 @@ export function getMarginStyles(margin: number | number[] = 1) {
       '--pagedjs-margin-right': `${margin[1]}in`,
       '--pagedjs-margin-bottom': `${margin[2]}in`,
       '--pagedjs-margin-left': `${margin[3]}in`,
-    }
+    } as React.CSSProperties;
   }
 
   return {
@@ -13,5 +13,5 @@ export function getMarginStyles(margin: number | number[] = 1) {
     '--pagedjs-margin-right': `${margin}in`,
     '--pagedjs-margin-bottom': `${margin}in`,
     '--pagedjs-margin-left': `${margin}in`,
-  }
+  } as React.CSSProperties;
 }
