@@ -1,6 +1,6 @@
 import { Flex } from 'antd';
 import { nameFile, useResumeStore } from '../resume/store';
-import styles from './Preview.module.css';
+import styles from './preview.module.css';
 import { useReactToPrint } from 'react-to-print';
 import { useEffect, useRef } from 'react';
 import { Previewer } from 'pagedjs';
