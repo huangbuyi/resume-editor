@@ -8,28 +8,6 @@
   align-items: center;
 }
 
-.preview {
-  width: 4.25in;
-  height: 5.5in;
-  overflow: hidden;
-  user-select: none;
-  cursor: pointer;
-  transition: all 275ms cubic-bezier(0.4, 0, 0.2, 1);
-  outline: 1px solid #ffffff;
-}
-
-.preview:hover {
-  outline: 1px solid #1677ff;
-}
-
-.preview :global(.pagedjs_page) {
-  background-color: #fff;
-  box-shadow: var(--shadow-1);
-  margin-bottom: 16px;
-  transform: scale(0.5, 0.5);
-  transform-origin: 0% 0%;
-}
-
 .title {
   margin-top: 8px;
   font-size: 16px;

@@ -113,9 +113,7 @@ export function Market() {
         {
           templateData.templates.length > 0 ? templateData.templates.map((template) => (
             <div key={template.name} className={styles.template}>
-              <div className={styles.preview} onClick={() => changeTemplate(template.name)}>
-                <TemplatePreview template={<template.template resume={resume} />} home={template.home} margin={template.margin} />
-              </div>
+              <TemplatePreview template={<template.template resume={resume} />} home={template.home} margin={template.margin} onClick={() => changeTemplate(template.name)} />
               <div className={styles.title}>{template.title}</div>
             </div>
           )) : <Empty />
