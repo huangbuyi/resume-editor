@@ -1,6 +1,6 @@
 import { Resume } from '../resume/resume';
 import { MdDiv } from './components/md';
-import styles from './fullsider.module.css';
+import styles from './fullSider.module.css';
 
 export function FullSider({ resume }: { resume: Resume }) {
   const { name, title, profilePicture, infos, skills, experiences, educations, projects, interests, introduction } = resume;
