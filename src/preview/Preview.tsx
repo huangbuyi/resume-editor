@@ -23,25 +23,29 @@ export function Preview() {
   setPrintFn(reactToPrintFn);
 
   useEffect(() => {
-    if (!template) return;
-    const DOMContent = ReactDOMServer.renderToString(<template.template resume={resume} />);
-    
-    const scrollParent = getScrollParent(contentRef.current);
-    let scrollTop = 0;
-    if (scrollParent && (scrollParent as HTMLElement).scrollTop) {
-      scrollTop = (scrollParent as HTMLElement).scrollTop;
-    }
-
-    if (contentRef.current === null) return;
-
-    paged.current.preview(DOMContent, [], contentRef.current).then(() => {
-      document.title = nameFile(resume);
-      if (scrollTop > 0) {
-        (scrollParent as HTMLElement).scrollTop = scrollTop;
+    const handler = setTimeout(() => {
+      if (!template) return;
+      const DOMContent = ReactDOMServer.renderToString(<template.template resume={resume} />);
+      
+      const scrollParent = getScrollParent(contentRef.current);
+      let scrollTop = 0;
+      if (scrollParent && (scrollParent as HTMLElement).scrollTop) {
+        scrollTop = (scrollParent as HTMLElement).scrollTop;
       }
-    })
 
-    console.log(paged);
+      if (contentRef.current === null) return;
+
+      paged.current.preview(DOMContent, [], contentRef.current).then(() => {
+        document.title = nameFile(resume);
+        if (scrollTop > 0) {
+          (scrollParent as HTMLElement).scrollTop = scrollTop;
+        }
+      })
+    }, 1000)
+
+    return () => {
+      clearTimeout(handler);
+    }
   }, [resume, template])
 
   
