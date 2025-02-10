@@ -18,7 +18,7 @@ export function Preview() {
 
   const reactToPrintFn = useReactToPrint({
     contentRef,
-    pageStyle: ''
+    pageStyle: '',
   });
   setPrintFn(reactToPrintFn);
 
