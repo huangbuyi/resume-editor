@@ -6,21 +6,23 @@ import zhCN from 'antd/es/locale/zh_CN';
 import { ConfigProvider } from 'antd';
 import 'dayjs/locale/zh-cn';
 import dayjs from 'dayjs';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { Market } from './market/Market.tsx';
 import { AppLayout } from './AppLayout.tsx';
+
+// const base = import.meta.env.VITE_BASE;
 
 dayjs.locale('zh-cn');
 
 createRoot(document.getElementById('root')!).render(
   <ConfigProvider locale={zhCN}>
-    <BrowserRouter basename="/resume-show">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Editor />} />
         <Route element={<AppLayout />}>
           <Route path="/market" element={<Market />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </ConfigProvider>
 )
