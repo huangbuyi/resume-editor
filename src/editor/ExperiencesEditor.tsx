@@ -45,7 +45,7 @@ export function ExperiencesEditor() {
   function getStartDate() {
     const lastExper = experiences[experiences.length - 1];
     if (lastExper) {
-      return dayjs(lastExper.endDate).subtract(1, 'year').format(DateFormat);
+      return dayjs(lastExper.startDate || undefined).subtract(1, 'year').format(DateFormat);
     }
 
     return dayjs().subtract(1, 'year').format(DateFormat);
@@ -54,7 +54,7 @@ export function ExperiencesEditor() {
   function getEndDate() {
     const lastExper = experiences[experiences.length - 1];
     if (lastExper) {
-      return dayjs(lastExper.endDate).format(DateFormat);
+      return dayjs(lastExper.startDate || undefined).format(DateFormat);
     }
 
     return '';

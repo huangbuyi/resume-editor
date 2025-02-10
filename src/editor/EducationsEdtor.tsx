@@ -46,7 +46,7 @@ export function EducationsEditor() {
   function getStartDate() {
     const lastEducation = educations[educations.length - 1];
     if (lastEducation) {
-      return dayjs(lastEducation.endDate).subtract(4, 'year').format(DateFormat);
+      return dayjs(lastEducation.startDate || undefined).subtract(4, 'year').format(DateFormat);
     }
 
     return dayjs().subtract(1, 'year').format(DateFormat);
@@ -55,7 +55,7 @@ export function EducationsEditor() {
   function getEndDate() {
     const lastEducation = educations[educations.length - 1];
     if (lastEducation) {
-      return dayjs(lastEducation.endDate).format(DateFormat);
+      return dayjs(lastEducation.startDate || undefined).format(DateFormat);
     }
 
     return '';

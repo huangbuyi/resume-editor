@@ -46,7 +46,8 @@ export function ProjectsEditor() {
   function getStartDate() {
     const lastProject = projects[projects.length - 1];
     if (lastProject) {
-      return dayjs(lastProject.endDate).subtract(1, 'year').format(DateFormat);
+      console.log(dayjs);
+      return dayjs(lastProject.startDate || undefined).subtract(1, 'year').format(DateFormat);
     }
 
     return dayjs().subtract(1, 'year').format(DateFormat);
@@ -55,7 +56,7 @@ export function ProjectsEditor() {
   function getEndDate() {
     const lastProject = projects[projects.length - 1];
     if (lastProject) {
-      return dayjs(lastProject.endDate).format(DateFormat);
+      return dayjs(lastProject.startDate || undefined).format(DateFormat);
     }
 
     return '';
